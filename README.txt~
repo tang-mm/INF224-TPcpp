@@ -1,0 +1,58 @@
+﻿/*********************************
+ * TP C++ & JAVA Swing     11 oct.2013 - 08 dec.2013
+ *
+ * TANG Mengmeng
+******************************/
+
+Etat du projet:
+
+- C++: Question 1-13 sauf Question 11 qui est optionnelle.
+- Java: Tout est réalisé.
+
+
+*********** 5e étape: Traitement générique (en utilisant le polymorphisme)****************
+
+Quelle est la propriété caractéristique de l'Orienté Objet qui permet de faire cela ? Qu'est-il spécifiquement nécessaire de faire pour que cela marche dans le cas du C++ ? Quel est le type des éléments du tableau : est-ce que ce tableau contient les objets ou des pointeurs vers ces objets ? Pourquoi ? Comparer à Java.
+
+--> L'héritage de l'Orienté Objet permet aux sous-classes d'avoir le polymorphisme. Il faut définir les méthodes comme 'virtual' pour avoir une liaison dynamique tel que, quand on appelle à une méthode redéfinie dans la sous-classe (photo/video), c'est bien l'objet qui contient la méthode (photo/video respectivement) qui est appelée.
+    Les éléments du tableau sont du type (Source*). Ce tableau contient des pointeurs vers ces objets car il utilise la mémoire dynamique et on est obligé de l'utiliser pour réaliser le polymorphisme. En java, les tableaux contiennent les références vers les objets.
+
+
+*********** 6e étape: Films et tableaux *************************
+
+Compte tenu de ce qui précède, que faut-il faire dans ce cas pour être sûr que la gestion mémoire soit valide, c'est-à-dire qu'il ne puisse pas y avoir de pointeur pendant ni de fuites mémoire ?
+
+--> Dans la méthode "setTabDur" de la classe Film, on doit faire un copie profonde en copiant chacun des éléments contenus dans le tableau passant en paramètre.
+
+
+*********** 7e étape:  Destruction et copie des objets ************************
+
+Parmi les classes précédemment écrites quelles sont celles qu'il faut modifier et comment afin qu'il n'y ait pas de fuite mémoire quand on détruit leurs instances ?
+
+De même, la copie d'objets peut poser problème dans certains cas. Quelle(s) classe(s) sont concernées parmi celles déjà écrites et que faut-il faire ?
+
+--> La classe Film contient un tableau d'entiers qui est créé par un "new", une copie superficielle de une instance Film crée plusieurs pointeur qui pointent sur le même objet, leurs tabDur pointent sur le même tableau dans la mémoire.   
+    Pour éviter ce cas, on peut redéfinir le constructeur d'initialisation à partir d'un autre objet Film et l'opérateur '=' dans la classe Film.
+
+
+********** 8e étape: Ajouter les Players et autres améliorations ************
+
+Comment faut-il déclarer cette méthode dans la classe de base ? Quelle conséquence cela aura sur l'instantiation d'objets de cette classe et pourquoi?
+
+--> Il faut déclarer la méthode Source::play() "virtual" et "= 0". Cette méthode ne peut pas être implémentée. La classe contenant Source cette méthode abstraite devient donc une classe abstraite, qui ne pourrai plus être instanciéé.
+
+
+********** 9e étape. Créer des groupes ************
+
+On rappelle aussi que dans les 2 cas, la liste d'objets doit en fait être une liste de pointeurs d'objets. Pourquoi ? Comparer à Java.
+
+--> Dans une liste de pointeurs, nous n'avons pas d'accès direct aux éléments, et le coût d'insertion et de suppression est plus faible par rapport à une list(vecteur) contenant des objets. En Java, les listes contiennent toujours des références d'objet.
+
+
+********** 12e étape. Gestion cohérente des données ************
+
+Comment faire pour interdire l'utilisation de "new" et "delete" en dehors de cette classe servant à fabriquer et manipuler les objets ?
+
+--> On pourrait rendre les constructeurs et destructeurs "protected", qui bloque l'accès aux classes en dehors de l'hierarchie. Pour donner explicitement le droit d'accès à une telle classe (Factory / Groupe), on peut utiliser "friend".
+
+

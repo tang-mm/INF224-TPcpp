@@ -1,0 +1,2 @@
+Socket.o: Socket.cpp Socket.h
+client.o: client.cpp Socket.h

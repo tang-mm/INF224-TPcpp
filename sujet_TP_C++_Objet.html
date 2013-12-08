@@ -1,0 +1,1180 @@
+<html>
+  
+  <head>
+    <title>Elc > Inf224 > Travaux Pratiques C++/Objet</title>
+    <meta http-equiv="content-type" content="text/html"; charset="utf-8">
+      
+      <style>
+        body {
+          font-family: arial, helvetica, sans-serif;
+          font-size: 10pt;
+        }
+        
+        em {
+          font-style: normal;
+          color: #ee5e19;  /* orange */
+        }
+        
+        a {
+          color: steelblue;
+        }
+      
+        pre {
+          padding-top: 0px;
+          margin-top: 8px;
+          padding-bottom: 0px;
+          margin-bottom: 0px;
+        }
+        
+        ul {
+          padding-top: 0px;
+          margin-top: 3px;
+          padding-bottom: 0px;
+          margin-bottom: 0px;
+        }
+        
+        li {
+          padding-top: 0px;
+          margin-top: 0px;
+          padding-bottom: 0px;
+          margin-bottom: 6px;
+        }
+        
+        h1 {
+          font-family: arial, helvetica, sans-serif;
+          font-size: 26pt;
+          color: navy;
+          margin-top:15px;
+          margin-bottom:2px;
+        }
+        
+        h2 {
+          font-family: arial, helvetica, sans-serif;
+          font-size: 18pt;
+          color: #ee5e19;
+          margin-bottom:0px;
+          padding-bottom: 0px;
+        }
+        
+        h3 {
+          font-family: arial, helvetica, sans-serif;
+          font-size: 14pt;
+          margin-top: 30px;
+          margin-bottom:  0px;
+          padding-bottom: 0px;
+          color: navy;
+        }
+        
+        </style>
+      </head>
+  
+  
+  
+  <!-- -------------------------------------------------------------- -->
+  <!-- ---  BODY ---------------------------------------------------- -->
+  <!-- -------------------------------------------------------------- -->
+  
+  
+  
+  <body>
+    <h1>Travaux Pratiques C++/Objet</h1>
+    
+    <big>
+      <font color="black">
+        <a href="http://www.enst.fr/~elc">
+          <font color="black">Eric Lecolinet</font></a>
+        -
+        <a href="http://www.enst.fr/">
+          <font color="black">T&eacute;l&eacute;com ParisTech</font></a>
+        -
+        <a href="http://www.infres.enst.fr/">
+          <font color="black">Dept. INFRES</font></a>
+      </font>
+    </big>
+    <br>
+    <br>
+    
+    
+    <h2>Liens utiles</h2>
+    
+    <ul>
+      <li><a href="http://www.enst.fr/~elc/cpp/slide001.html" target="coursC++"><b>Transparents de ce cours</b></a>
+        et un <a href="http://www.infres.enst.fr/~elc/C++" target="coursC++">petit tutoriel</a>
+      </li>
+      <li>
+        <a href="http://www.cplusplus.com/" target="doc"><b>cplusplus.com</b></a>,
+        son <a href="http://www.cplusplus.com/reference" target="doc"><b><em>manuel de référence</em></b></a>
+        ou (si l'on préfère)
+        <a href="http://www.cppreference.com/" target="doc"><b>C/C++ Reference</b></a>
+      </li>
+      <li>
+        <a href="http://www.doxygen.org/" target="doc"><b>Doxygen</b></a> et un
+        <a href="http://franckh.developpez.com/tutoriels/outils/doxygen/" target="doc">tutoriel</a>
+      </li>
+    </ul>
+    Et aussi :
+    <ul>
+      <li>
+        <a href="http://www.infres.enst.fr/~elc/qt/" target="more">Qt: un toolkit graphique</a> multi-plateformes en C++
+      </li>
+      <li>
+        <a href="http://www.boost.org/" target="more">Boost C++ Libraries</a> diverses extensions utiles
+      </li>
+      <li>
+        <a href="http://www.research.att.com/~bs/C++.html" target="more">Site de Bjarne Stroustrup</a> l'auteur du C++
+      </li>
+      <li>
+        <a href="http://www.parashift.com/c++-faq-lite/" target="more">C++ FAQ</a> la méga foire aux questions
+      </li>
+      <li>
+        <a href="http://casteyde.christian.free.fr/" target="more">le mega Cours C++</a> de Christian Casteyde
+      </li>
+    </ul>
+    <p>
+    </p>
+    
+    <!-- ------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------- -->
+    
+    
+    <h2> Exercices </h2>
+    
+    <p>
+    Le but de ces travaux pratiques est de créer l'ébauche du logiciel d'une
+    set-top box multimédia permettant de jouer de la musique, des vidéos,
+    des films, d'afficher des photos, etc.
+    </p>
+    <p>
+    Ce logiciel sera realisé par étapes, en se limitant à la déclaration
+    et l'implémentation de quelques classes et fonctionnalités typiques que l'on
+    complétera progressivement. Noter qu'il est utile de lire le texte de
+    chaque étape en entier avant de la traiter (en particulier les notes ou
+    remarques qui donnent des indications)
+    </p>
+    
+    
+    
+    <h3>1e Etape: Démarrage</h3>
+    <ul>
+      <li>
+        Ouvrir une fenêtre <b>Terminal</b>
+      </li>
+      <li>
+        Créer un <b>répertoire de travail</b> pour les fichier de ce TP, par exemple :
+        <tt>mkdir inf224</tt>
+      </li>
+      <li>
+        Aller dans ce répertoire :
+        <tt>cd inf224</tt>
+      </li>
+      <li>
+        Copier le <a href="Makefile"><b>Makefile</b></a> qui servira à votre projet
+        dans le répértoire
+        (NB: du fait de la présence de tabulations, ne pas faire de couper coller,
+        utiliser la commande pour enregister le fichier)
+      </li>
+      <li>
+        Lancer un <b>IDE approprié pour le développement C/C++</b>,
+        par exemple <em><b>QtCreator</b></em>,
+        qui est accessible depuis le menu "Programmation" ou le Terminal (en tapant
+        la commande : <tt>qtcreator&amp;</tt>).
+        Si vous le souhaitez vous pouvez utiliser un autre IDE (Eclipse, Emacs...)
+        <em><b>à condition qu'il utilise **CE** Makefile</b></em> pour compiler le projet.
+        Dans tous les cas, votre programme doit pouvoir être compilé juste en tapant
+        la commande <tt>make</tt> dans le Terminal. Ceci a l'avantage de rendre votre
+        projet indépendant de l'IDE et (dans une certaine mesure) de la plateforme.
+      </li>
+    </ul>
+    
+    <p>
+    <b>ATTENTION :</b>
+    <ul>
+      <li> un programme qui <font color="red"><b>ne compile pas en tapant <tt>make</tt>
+        sera considéré non rendu !</b></font>
+      </li>
+      <li> n'utilisez pas un simple éditeur de texte comme gedit, textedit, textpad... :
+        ce ne sont pas des outils appropriés pour programmer !
+      </li>
+    </ul>
+    </p>
+    
+    <p>
+    Pour créer un projet compatible avec un Makefile avec <b><em>QtCreator</em></b> :
+    <ul>
+      <li> "Fichier" puis "Nouveau fichier ou projet..."</li>
+      <li> "Importer un projet" puis "Importer un projet existant"</li>
+      <li> indiquer un nom de projet et choisir le répertoire que vous avez
+        précédemment créé, puis valider autant de fois que nécessaire.
+      </li>
+    </ul>
+    </p>
+    
+    
+    
+    <h3>2e Etape: Classe de base</h3>
+    <p>
+    Ecrire la <b>déclaration</b> (fichier header .h) et l'<b>implementation</b>
+    (fichier source .cpp) de la <b>classe de base</b> de l'arbre d'héritage
+    des classes d'objets multimédia. Cette classe de base contiendra ce qui
+    est commun à tous les objets multimédia. On s'en servira ensuite pour
+    définir des sous-classes spécifiques à chaque type de donnée (par exemple
+    une classe photo, vidéo, film, morceau de musique, etc.)
+    </p>
+    <p>
+    Pour créer ces 2 fichiers, dans QtCreator cliquer :
+    <em>Fichier > Nouveau fichier ou projet... > Classe C++</em>
+    (le nom du .h et du .cpp sera forgé à partir de celui de la classe).
+    Noter aussi que, par convention, les noms de vos classes devront commencer par
+    une majuscule et ceux des variables et des fonctions par une minuscule.
+    </p>
+    
+    <p>
+    Pour simplifier, cette classe de base n'aura que trois attributs:
+    <ul>
+      <li>
+        Le <b>nom</b> de l'objet multimédia qui devra être de type
+        <a href="http://www.cplusplus.com/reference/string/string/" target="doc">
+          <b>string</b></a> (ne <b>pas</b> utiliser les horribles <em>char*</em> du langage C !)
+      </li>
+      <li>
+        Sa <b>date d'acquisition</b>, une valeur numérique (pas une string) avec
+        un type adéquat (sous Unix les dates sont généralement comptées en
+        secondes depuis le 1er janvier 1970).
+      </li>
+      <li>
+        Le <b>nom du fichier</b> associé à l'objet multimédia. Il s'agit du chemin
+        complet (pathname) permettant d'accéder à ce fichier (une photo jpeg,
+        une vidéo mpeg, etc.) dans le système de fichiers Unix.
+      </li>
+    </ul>
+    </p>
+    
+    <p>
+    Déclarer et implémenter deux <em>constructeurs</em> (un sans argument, un avec
+    arguments), le <em>destructeur</em>, ainsi que les <em>accesseurs</em> et
+    <em>modifieurs</em> pour pouvoir lire ou modifier les attributs.
+    Définir également une <b>méthode d'affichage</b> permettant d'afficher
+    la valeur des attributs de l'objet sur le Terminal. Pensez à utiliser
+    le mot-clé <em><b>const</b></em> (pour les fonctions et les paramètres des
+    fonctions) là ou c'est souhaitable.
+    </p>
+    
+    <p>
+    <b>Pour compiler le fichier et corriger les erreurs</b>
+    </p>
+    <ul>
+      <li>
+        Dans QtCreator, vous devrez éventuellement cliquer sur "Liste des Projets"
+        puis selectionner "Fichiers Systeme" pour faire apparaître
+        les fichiers du répertoire de travail (en particulier le fichier Makefile)
+      </li>
+      <li>
+        Ouvrez le fichier <em>Makefile</em> (en double-cliquant dessus dans la liste)
+        et modifiez si nécessaire la valeur de
+        <em>EXEC</em> (le nom du programme qu'on veut produire) et
+        <em>SOURCES</em> (la liste de vos fichiers <b>.cpp</b> séparés par des blancs).
+        Ne <b>pas</b> mettre les .h dans SOURCES.
+      </li>
+      <li>
+        Cliquer sur le marteau de <em>QtCreator</em> (en bas à gauche) ou tapez
+        <em>Control-B</em>. Un peu plus haut une barre horizontale indique l'état de la
+        compilation. Si la barre est rouge, un problème est survenu :
+        cliquer sur la barre pour voir les erreurs.
+        En cliquant sur ces dernières, QtCreator fait automatiquement
+        apparaître le code source correspondant.
+      </li>
+      <li>
+        Si vous obtenez une erreur comme
+        <i>make: *** No rule to make target `main.o', needed by `myprog'. Stop.</i>
+        c'est normal, c'est juste que vous n'avez pas encore créé le fichier
+        <em>main.cpp</em>.
+      </li>
+    </ul>
+    
+    
+    
+    
+    <h3>3e Etape: Programme de test</h3>
+    <p>
+    Un <b>programme exécutable</b> nécessite la présence d'une fonction
+    <em>main()</em>.
+    Cette fonction ne doit pas se trouver dans l'implémentation de la classe
+    de base car ceci interdirait sa réutilisation ultérieure.
+    On va donc créer un autre fichier, appelé par exemple <em>main.cpp</em>
+    qui va implémenter la fonction <em>main()</em>.
+    </p>
+    <p>
+    Pour tester, créer quelques instances de la classe de base (en utilisant
+    <em>new</em>) dans <em>main()</em> et vérifier que la fonction d'affichage
+    affiche correctement la valeur des attributs dans le Terminal.
+    Noter que votre code doit (et devra toujours par la suite) respecter le
+    <b>principe d'encapsulation</b> : on ne doit donc jamais accéder aux attributs
+    des objets autrement que par des méthodes.
+    </p>
+    <p>
+    <b>Pour compiler et générer l'exécutable :</b>
+    pensez à rajouter <em>main.cpp</em> dans <em>SOURCES</em> dans le
+    <em>Makefile</em> puis faites comme précédemment.
+    </p>
+    <p>
+    <b>Pour exécuter le programme:</b> le plus simple est de taper son nom
+    précédé de <em>./</em> dans le Terminal, par exemple : <tt>./myprog</tt>
+    </p>
+    
+    <p>
+    Enfin, pensez à <b>commenter votre code source</b>, et en particulier les
+    headers afin de pouvoir générer automatiquement la documentation grâce à
+    <a href="http://www.doxygen.org/" target="doc"><b>Doxygen</b></a>.
+    On pourra pour l'instant se limiter aux fonctionnalités de base de Doxygen
+    vues en cours, ne commenter que l'essentiel, et compléter ultérieurement.
+  
+
+    
+    </p>
+
+    
+    
+    <h3>4e Etape: Photos et videos</h3>
+    <p>
+    On va maintenant créer deux sous-classes de la classe de base, l'une correspondant
+    à une photo, l'autre à une vidéo.
+    Ces classes pourraient bien sûr comprendre de nombreux attributs mais on va
+    faire simple pour ne pas perdre de temps :
+    </p>
+    <ul>
+      <li>une <b>vidéo</b> a une <b>durée</b>
+      </li>
+      <li>une <b>photo</b> peut être caractérisée par un <b>lieu</b> géographique
+      </li>
+    </ul>
+    <p>
+    Déclarer et implémenter ces 2 classes, chacune dans des fichiers qui lui sont
+    propres pour une plus grande modularité et faciliter la réutilisation.
+    Ces classes étant simples, on pourra les implémenter entièrement dans header
+    si on le souhaite. Ne pas oublier les constructeurs, les accesseurs,
+    les modifieurs et la méthode d'affichage. Pour simplifier le code, on pourra ne
+    définir qu'un seul constructeur par classe en utilisant les
+    <b>paramètres par défaut</b>.
+    <p>
+    </p>
+    Modifier le <em>Makefile</em> si nécessaire, compiler, corriger
+    les éventuelles erreurs et tester le programme.
+    </p>
+    
+    
+    
+    
+    <h3>5e Etape: Traitement générique (en utilisant le polymorphisme)</h3>
+    <p>
+    On veut maintenant pouvoir traiter génériquement une liste comprenant
+    à la fois des photos et des vidéos. Pour ce faire créer dans <em>main.cpp</em>
+    un tableau dont les élements sont tantôt une photo tantôt une vidéo.
+    Ecrire ensuite une boucle permettant d'afficher les attributs de tous les
+    élements du tableau. Cette boucle n'a <b>pas besoin de connaître le type</b>
+    des élements : elle doit pouvoir traiter de la même manière tous les éléments
+    dérivant de la classe de base.
+    </p>
+    <p>
+    Quelle est la propriété caractéristique de l'Orienté Objet qui permet de faire
+    cela ? Qu'est-il spécifiquement nécessaire de faire pour que cela marche dans
+    le cas du C++ ? Quel est le type des éléments du tableau : est-ce que ce tableau
+    contient les objets ou des <b>pointeurs</b> vers ces objets ? Pourquoi ?
+    Comparer à Java.
+    </p>
+    <p>
+    Compiler, exécuter, et vérifier que le résultat est correct.
+    </p>
+    
+    
+    
+    <h3>6e étape. Films et tableaux</h3>
+    <p>
+    On veut maintenant définir une sous-classe <em>Film</em> dérivant de la classe
+    <em>Vidéo</em>. Une particularité des films est qu'ils sont composés de plusieurs 
+    chapitres ce qui permet d'accéder rapidement à une partie du film (par exemple
+    la fameuse scène où le héros sauve le monde à mains nues contre de redoutables Aliens !)
+    </p>
+    <p>
+    Pour ce faire on va utiliser un <b>tableau</b> d'entiers contenant la <b>durée</b> 
+    de chaque chapitre.
+    Il serait en fait préférable d'utiliser un <b>vecteur</b> de la librairie C++
+    mais on va ne pas le faire dans cette question pour illustrer les difficultés
+    que peuvent poser les pointeurs et tableaux en C et C++.
+    </p>
+    <p>
+    Ecrire la classe Film, qui doit avoir (cf. aussi les Remarques ci-après) :
+    <ul>
+      <li>
+        un <b>modifieur</b> permettant de passer en argument un <b>tableau de durées</b>
+      </li>
+      <li>
+        un <b>accesseur</b> retournant le tableau de durées et le nombre de chapitres
+      </li>
+      <li>
+        une <b>fonction d'affichage</b> affichant tous les éléments
+      </li>
+      <li>
+        des <b>constructeurs</b> adéquats (NB: il n'est pas obligatoire que les
+        constructeurs prennent en compte tous les arguments, comme le tableau de durées,
+        puisqu'on peut appeler le modifieur adéquat après la création de l'objet)
+      </li>
+    </ul>
+    <b>Remarques :</b> 
+    <ul>
+      <li>
+        En C ou C++ un <em>paramètre de fonction de type tableau</em>
+        n'est en réalité qu'un pointeur pointant sur son premier élément.
+        Il ne peut donc <b>pas connaître le nombre d'éléments</b> du tableau
+        (contrairement aux tableaux de Java ou C# ou aux vecteurs du C++).
+        Le nombre d'éléments du tableau doit donc être spécifié explicitement.
+      </li>
+      <li>
+        Un tableau (ou un objet) passé en argument à une fonction
+        <b>peut éventuellement être détruit</b> plus tard par le programme
+        (par exemple en appelant <em>delete</em> s'il a été créé avec <em>new</em>).
+        Si une variable d'instance du Film pointe sur ce tableau elle va se
+        retrouver <em>pendante</em> c'est-à-dire qu'elle va pointer sur une donnée
+        qui n'existe plus!
+      </li>
+    </ul>
+    Compte tenu de ce qui précède, que faut-il faire dans ce cas pour être sûr
+    que la gestion mémoire soit valide, c'est-à-dire qu'il ne puisse pas y avoir
+    de pointeur pendant ni de fuites mémoire ?
+    </p>
+    <p>
+    De plus pensez à spécifier <b> qui peut modifier quoi</b> en utilisant le
+    le mot clé <em>const</em> à bon escient dans les prototypes du modifieur
+    et de l'accesseur. Il faut en particulier éviter que l'accesseur viole
+    le <b>principe d'encapsulation</b> : personne ne doit pouvoir modifier
+    le contenu d'un objet Film à son insu (c'est-à-dire sans invoquer une méthode).
+    </p>
+    <p>
+    Implementez votre classe et vérifiez
+    que le resultat est correct en détruisant le tableau passé en argument dans
+    <em>main()</em> puis en appelant la fonction d'affichage de l'objet
+    (NB: il faut répéter ces opérations pour plusieurs objets pour être sûr
+    qu'il n'y a pas d'erreur à l'exécution).
+    </p>
+    
+    
+    
+    
+    
+    <h3>7e étape. Destruction et copie des objets</h3>
+    <p>
+    Contrairement à Java ou C#, C/C++ ne gère pas la <em>mémoire dynamique</em>
+    automatiquement (*) : comme il n'y a pas de ramasse miettes, tout ce qui a été
+    créé avec <em>new</em> doit être détruit avec <em>delete</em> sinon on aura
+    des fuites mémoires.
+    Parmi les classes précédemment écrites quelles sont celles qu'il faut modifier
+    et comment afin qu'il n'y ait <b>pas de fuite mémoire</b> quand on détruit
+    leurs instances ?
+    </p>
+    <p>
+    De même, la <b>copie d'objets</b> peut poser problème dans certains cas.
+    Quelle(s) classe(s) sont concernées parmi celles déjà écrites et que faut-il faire ?
+    </p>
+    <p>
+    Faites les modifications adequates ainsi que quelques tests dans <em>main()</em>
+    pour vérifier que tout se passe comme souhaité
+    (créer, copier et détruire plusieurs objets).
+    </p>
+    <p>
+    <b>(*) Note :</b>  on rappelle que contrairement à la mémoire dynamique
+    (celle gérée par new et delete),
+    la <em>mémoire globale/static</em> et la <em>pile</em> (celle des
+    paramètres et variables locales des fonctions) sont toujours gérées
+    automatiquement : les variables correspondantes sont (respectivement)
+    détruites quand on sort du programme ou de la fonction.
+    </p>
+
+    
+    
+    
+    
+    <h3>8e étape. Ajouter les Players et autres améliorations</h3>
+    <p>
+    Le but final de ce logiciel est bien sûr de permettre d'afficher les photos,
+    jouer les vidéos, les films, etc. Implémenter ces fonctionnalités
+    dépasse le cadre de ce TP mais on peut par contre facilement appeler
+    des logiciels externes pour le faire.
+    </p>
+    <p>
+    Pour chaque classe, <b>ajouter une méthode play()</b> (ou similaire) permettant,
+    selon le cas, d'afficher la photo ou de jouer la vidéo ou le film (voir
+    la note ci-dessous).
+    L'implémentation de cette méthode n'a pas vraiment de sens au niveau de la
+    classe de base mais elle doit par contre y être déclarée afin de permettre
+    un appel polymorphique de la méthode play() sur la hiérarchie de classes.
+    Comment faut-il déclarer cette méthode dans la classe de base ? Quelle
+    conséquence cela aura sur l'instantiation d'objets de cette classe et pourquoi?
+    </p>
+    <p>
+    <b>Profitez de l'occasion</b> pour modifier le code que
+    vous avez déjà écrit pour rajouter, aux endroits où c'est souhaitable,
+    les <em>const</em> ou <em>const réferences</em> pour les paramètres et
+    valeurs de retour, et pour specifier quelles méthodes doivent être
+    <em>const</em> si ce n'est pas déjà fait.
+    (NB: si ces aspects n'ont pas encore été vus en cours passez cette
+    question mais <b>pensez à la traiter plus tard</b>).
+    De même, pensez à <b>commenter votre code</b> pour que la documentation puisse
+    ensuite être générée automatiquement grâce à
+    <a href="http://www.doxygen.org/" target="doc"><b>Doxygen</b></a>.
+    </p>
+    <p>
+    <b>(*) Note : </b>  Pour implémenter les players il suffit d'appeler la fonction
+    <em>system(const char*)</em> de la librairie C en donnant en argument la
+    commande à exécuter. Exemple :
+    <pre>      system("mplayer mon_fichier_video.jpg &amp;");
+    </pre>
+    Pour ce faire il faudra convertir les strings du C++ en char* grâce à la méthode
+    <em>string::c_str()</em>. Ne pas oublier le <em><b> &amp; </b></em>
+    à la fin de la commande
+    afin de la lancer en tâche de fond sinon votre programme va se bloquer.
+    </p>
+   
+    
+    
+    
+    
+    <h3>9e étape. Créer des groupes</h3>
+    <p>
+    On va maintenant créer une nouvelle classe servant à contenir un <b>groupe</b>
+    d'objets dérivant de la classe de base. Un groupe peut contenir un ensemble
+    d'objets similaires (e.g. un groupe pour toutes les photos et un autre pour toutes
+    les vidéos) ou pas (e.g. un groupe pour toutes les photos et vidéos des mes
+    vacances en Papouasie en 2113).
+    </p>
+    <p>
+    Pour ce faire on va utiliser le <em>template</em>
+    <a href="http://www.cplusplus.com/reference/stl/list/" target="doc"><b>list</b></a>
+    de la librairie standard qui permet de créer une liste d'objets d'une classe donnée.
+    </p>
+    Deux stratégies sont ici possibles :
+    <ul>
+      <li>
+        soit créer une classe qui <b>contient</b> une <em>list</em>
+        d'objets (la liste est alors une variable d'instance de la classe)
+      </li>
+      <li>
+        soit créer une classe qui <b>hérite</b> d'une <em>list</em>
+        d'objets (la liste est alors héritée de la classe parente)
+      </li>
+    </ul>
+    <p>
+    La première stratégie nécessite de définir des méthodes dans la classe
+    groupe pour gérer la liste. La seconde stratégie évite ce travail car elle
+    permet d'hériter des méthodes de <em>list</em>. Elle est donc plus rapide
+    à implémenter mais offre moins de contrôle (on ne choisit pas les noms de
+    méthodes comme on veut, on hérite de toutes les méthodes de <em>list</em>
+    y compris certaines qui sont peut-être inutile ou pas souhaitables, etc.)
+    On rappelle aussi que dans les 2 cas, la liste d'objets doit en fait
+    être une liste de <b>pointeurs</b> d'objets. Pourquoi ? Comparer à Java.
+    </p>
+    <p>
+    Pour aller plus vite, écrivez cette classe en utilisant la seconde
+    stratégie. Définir les méthodes suivantes:
+    <ul>
+      <li>le <b>constructeur</b> et le <b>destructeur</b>
+      </li>
+      <li>un <b>accesseur</b> qui renvoie le nom du groupe
+      </li>
+      <li>une <b>méthode d'affichage</b> qui affiche les attributs de toutes
+        les objets de la liste sur le Terminal
+      </li>
+    </ul>
+    Pour l'instant on ne s'intéresse pas à la destruction des objets.
+    </p>
+    <p>
+    Pour tester, créez plusieurs groupes dans <em>main()</em> en les peuplant
+    de photos, videos, films et en faisant en sorte que certains objets
+    <b>appartiennent à plusieurs groupes</b>.
+    Appelez la fonction d'affichage pour chacun des groupes pour vérifier que
+    tout est OK.
+    </p>
+    
+    
+
+    
+    <h3>10e étape. Gestion automatique de la mémoire (1)</h3>
+    <p>
+    Comme on l'a vu aux étapes 6 et 7, la gestion de la mémoire dynamique (celle
+    allouée avec <em>new</em> en C++ et <em>malloc()</em> en C) est un problème
+    majeur avec ces langages. On risque en effet, soit de se retrouver avec
+    des <b>pointeurs pendants</b> parce que l'objet qu'ils pointaient à été
+    détruit ailleurs (étape 6), soit avec des <b>fuites mémoires</b> parce l'on
+    n'a pas détruit des objets qui ne sont plus pointés nulle part (étape 7).
+    </p>
+    <p>
+    Le premier problème est la source No. 1 de <b>plantages</b> avec ces
+    langages ! Le second n'est pas très grave lorsque le programme ne consomme
+    pas beaucoup de mémoire <b>ET</b> ne s'exécute pas longtemps car de toute
+    façon toute la mémoire est désallouée à la fin de l'exécution du programme.
+    Mais il est par contre très problématique dans les cas contraires (un
+    logiciel photo / un serveur Web) : la moindre fuite peut alors  conduire à
+    un épuisement total de la mémoire vive ! De plus, la mémoire est une
+    ressource précieuse pour de nombreux équipements : terminaux mobiles,
+    matériels embarqués, consumer electronics...
+    </p>
+    <p>
+    Comme vu en cours, C++ offre une solution simple à ce problème :
+    les <b>pointeurs intelligents</b> (ou <em>smart pointers</em>) associés au
+    <b>comptage de références</b> : les objets sont alors automatiquement
+    détruits quand plus aucun smart pointer ne pointe sur eux (il ne faut donc
+    plus appeler <em>delete</em> pour les detruire !).
+    Copiez <a href="intrusive_ptr.h" target="doc"><b>intrusive_ptr.h</b></a>
+    dans votre répértoire. Cette implémentation, dérivée des
+    <a href="http://www.boost.org/doc/libs/1_47_0/libs/smart_ptr/smart_ptr.htm"
+      target="doc"> smart pointers intrusifs de Boost</a>, définit le template
+    <em>intrusive_ptr</em> qui permet de pointer des classes possédant un compteur
+    de réferences. Ce fichier définit aussi une classe <em>Pointable</em>
+    possédant un compteur compatible avec <em>intrusive_ptr</em>.
+    En utilisant cette implémentation modifiez la classe de base de votre
+    hiérarchie <b>et</b> la classe groupe. A des fins de vérification, modifiez
+    également le destructeur de la classe de base pour qu'il affiche le nom de
+    l'objet lorsqu'il est détruit.
+    </p>
+    <p>
+    Enlevez des objets des groupes et vérifiez qu'ils sont effectivement détruits
+    quand, et seulement si, ils n'appartiennent plus à aucun groupe et ne sont
+    plus pointés par aucun smart pointer. Détruisez également des groupes
+    pour vérifier que tout se passe comme prévu.
+    </p>
+    
+    <p>
+    Pour comprendre ce qui se passe, refaites de même après avoir défini
+    (par #define) les macros SMART_PTR_DEBUG et SMART_PTR_DEBUG_MESSAGES
+    <b>avant</b> l'inclusion de <em>intrusive_ptr.h</em>. La première macro
+    permet de détecter d'éventuelles erreurs (ça peut être une bonne idée
+    de toujours la définir), la seconde macro sert à afficher un message chaque
+    fois que le compteur de références d'un objet est modifié.
+    </p>
+    
+    
+    <h3>11e étape. Gestion automatique de la mémoire (2)</h3>
+    <p>
+    Dans l'étape précédente on a utilisé les <em>smart pointers intrusifs</em>
+    qui ont pour avantage d'être compatibles avec les <em>raw pointers</em>,
+    c'est-à-dire les pointeurs (et aussi les références) ordinaires du C/C++.
+    Ceci permet de limiter les modifications lorsqu'il y a déjà du code existant.
+    Par exemple, soient le type T et les variables suivantes :
+    <pre>
+      T* rawp = new T();
+      intrusive_ptr&lt;T> smartp = new T();
+    </pre>
+    On peut les copier l'un dans l'autre comme suit :
+    <pre>
+      smartp = rawp;
+      rawp = smartp.get();         // rawp = smartp ne compilerait pas! get() est une méthode de intrusive_ptr
+    </pre>
+    Cependant les <em>smart pointers intrusifs</em> ne peuvent pointer que des
+    des objets ayant un compteur de référence. De plus, leur conversion en
+    <em>raw pointers</em> peut être une source d'erreurs.
+    Exemple :
+    <pre>
+      intrusive_ptr&lt;T> smartp = new T();
+      T* rawp = smartp.get();          // rawp pointe sur le même objet que smartp
+      smartp = NULL;                   // l'objet pointé par smartp est détruit
+      if (rawp != NULL) rawp->foo();   // rawp n'est pas nul mais il pointe sur un objet qui a été détruit !!!
+    </pre>
+    Il ne faut donc faire ce type de conversion que pour des <b>variables
+    temporaires</b> dont on est sûr qu'elles n'existeront plus lorsque l'objet
+    sera détruit (typiquement, des variables locales ou des paramètres de
+    fonctions).
+    </p>
+    <p>
+    Les <em>shared_ptr</em> (smart pointers <b>non</b> intrusifs)
+    possèdent des avantages et inconvénients inverses:
+    <ul>
+      <li>
+        ils ne nécessitent pas que l'objet pointé ait un compteur de référence
+        (celui-ci est créé automatiquement, en dehors de l'objet)
+      </li>
+      <li>
+        ils sont incompatibles avec les <em>raw pointers</em> et les copies
+        entre eux seront interdites par le compilateur.
+      </li>
+      </ul>
+    Les <em>shared_ptr</em> font de plus partie de la nouvelle norme
+    <em>C++11</em>. Cependant, pour les utiliser avec la version actuelle de g++
+    il faut rajouter en début de fichier :
+    <pre>
+      #include &lt;tr1/memory>
+      using std::tr1::shared_ptr;
+    </pre>
+    
+    (NB: vous pouvez passer cette question si vous êtes en retard) :
+    modifiez le code précédent de manière à utiliser
+    des <em>shared_ptr</em> à la place des <em>intrusive_ptr</em>.
+    Ceci vous demandera davantage de modifications qu'à la question précédente
+    du fait de l'incompatibilité avec les raw pointers. Notez aussi que vous
+    n'aurez plus besoin de la classe <em>Pointable</em> dans ce cas.
+    </p>
+    
+  
+    
+    
+
+    
+    <h3>12e étape. Gestion cohérente des données</h3>
+    <p>
+    On va maintenant créer une classe qui servira à fabriquer et manipuler tous
+    les objets de manière cohérente. Elle contiendra deux variables d'instance:
+    <ul>
+      <li> une table de tous les objets multimédia </li>
+      <li> une table de tous les groupes </li>
+    </ul>
+    Afin de permettre de retrouver efficacement les éléments à partir de leur nom,
+    ces table ne seront pas des tableaux ni des listes mais des
+    <b>tables associatives</b>
+    (<a href="http://www.cplusplus.com/reference/stl/map/"
+      target="doc"><b>map</b></a> en C++).
+    A chaque élement sera associé une <b>clé</b> de type <em>string</em> qui
+    sera, suivant le cas, le nom de l'objet ou du groupe.
+    Commencez tout d'abord par écrire cette classe, comme d'habitude dans
+    un nouveau fichier. Bien entendu, on utilisera les smart pointers dans
+    cette question (intrusifs ou pas, selon votre choix) afin de gérer la mémoire
+    automatiquement (si vous utilisez des smart pointers intrusifs il faudra
+    recourir à l'<b>héritage multiple</b> de manière à ce que les groupes
+    héritent également de la classe <em>Pointable</em>).
+    
+    </p>
+    <p>
+    On va maintenant déclarer et implémenter des méthodes adéquates pour :
+    <ul>
+      <li>
+        <b>Créér</b> une Photo, une Vidéo, un Film, un Groupe
+        et l'ajouter dans la table adéquate.
+        Ces fonctions renvoient l'objet créé afin de pouvoir
+        le manipuler ultérieurement.
+      </li>
+      <li>
+        <b>Supprimer</b> un objet multimédia ou un groupe à partir de son nom,
+        donné en argument.
+        L'élément doit être enlevé de la table adéquate et détruit s'il
+        n'appartient plus à aucune table. De plus, lorsqu'on supprime un objet
+        multimédia il faut d'abord l'enlever de tous les groupes dans lesquels
+        il figure.
+      </li>
+      <li>
+        <b>Rechercher</b> un objet multimédia ou un groupe à partir
+        de son nom, donné en argument.
+        Cette fonction doit permettre d'afficher les attributs d'un objet
+        ans le Terminal. Dans le cas d'un groupe, afficher son nom puis
+        les attributs des objets qu'il contient.
+      </li>
+      <li>
+        <b>Jouer</b> un objet multimédia (à partir de son nom,
+        donné en argument). Même chose que précédemment sauf que l'on appelle
+        la méthode play() au lieu d'afficher les attributs.
+      </li>
+    </ul>
+    Pour implémenter ces méthodes vous aurez probablement besoin des méthodes
+    suivantes : <em>map::operator[]</em> (pour l'insertion), <em>map::find</em>()
+    et <em>map::erase</em>().    
+    Faites ensuite quelques essais dans <em>main.cpp</em> pour vérifier que
+    ces méthodes fonctionnent correctement.
+    <p>
+    </p>
+    Les méthodes précédentes permettent d'assurer la cohérence de la base de
+    données : quand on crée un objet on l'ajoute à la table adéquate, quand
+    on supprime un objet on l'enlève des groupes qui le contiennent, etc.
+    Par contre, ce ne sera pas le cas si on crée un objet directement avec
+    <em>new</em> (il n'appartiendra à aucune table) ou pire, si on le détruit
+    avec <em>delete</em> (ce qui plantera le programme). Comment faire pour
+    interdire l'utilisation de <em>new</em> et <em>delete</em> en dehors
+    de cette classe servant à fabriquer et manipuler les objets ?
+    </p>
+
+    
+    
+    
+    
+ 
+    <h3>13e étape. Client / serveur</h3>
+    <p>
+    Cette étape vise à <b>transformer votre programme C++ en un serveur</b> qui communiquera
+    avec un client qui fera office de télécommande. Dans cette question le client
+    permettra d'envoyer des commandes textuelles. Plus tard, dans un autre TP on
+    vous demandera de faire une interface graphique Java qui interagira avec le
+    serveur de la même manière. Dans la réalité le serveur tournerait sur la set-top
+    box et le client sur un smartphone, une tablette, etc.
+    </p>
+    <p>
+    Récuperez <a href="Server.tar.gz"><b>ces fichiers</b></a>
+    et mettez les dans votre répertoire de travail.
+    Ajoutez tous les fichiers .cpp et .h (sauf <em>client.cpp</em>) à votre projet.
+    Au début de votre fonction <em>main()</em>, créez une instance de <em>TCPServer</em>
+    et lancez le serveur via sa méthode <em>run()</em> en lui donnant un <b>port
+    de communication</b> adéquat (par exemple 3331). Cette méthode met le serveur en attente
+    des messages du client, sauf en cas de problème de connexion auquel cas elle
+    retourne -1.
+    </p>
+    <p>
+    Modifiez le Makefile de telle sorte que l'on ait <tt><font color="red">
+    <b>LDLIBS= -lpthread</b></font></tt> (cette bibliothèque système est désormais nécessaire)
+    puis compilez votre programme (le serveur) selon la manière habituelle.
+    Compilez ensuite le programme client (fichier <em>client.cpp</em>) en tapant
+    dans le Terminal la commande : <tt><em>make -f Makefile-client</em></tt>.
+    Faites communiquer le client avec le serveur
+    en lisant ce qui suit pour comprendre comment ça marche.
+    </p>
+    <ul>
+      <li>
+        Le <b>client</b> crée une instance de <em>Socket</em> puis connecte celle-ci au serveur
+        via la méthode <em>connect()</em>. Celle-ci précise <b>à quelle machine et à quel
+          port</b> il faut se connecter. Par defaut la machine est <b>localhost</b> ce qui signifie
+        que le client tourne sur la même machine que le serveur. Vérifiez que le port
+        est bien le même que celui utilisé par le serveur (cf. sa méthode <em>run()</em>).
+        La méthode <em>connect()</em> renvoie 0 si la connexion réussit et une valeur négative
+        sinon, qui indique de type d'erreur
+        (NB: en remplaçant "localhost" par le nom adéquat, le client peut tourner sur
+        une autre machine si le port n'est pas bloqué par un firewall).
+        Si la connexion est réalisée, le client lance une boucle infinie (pour quitter,
+        taper ^C ou ^D) qui demande une ligne de commande à l'utilisateur puis l'envoie
+        au serveur via la méthode <em>writeLine()</em>. Le client se bloque alors
+        jusqu'à la réception de la réponse qui lui sera retournée par le serveur.
+        Ceci s'effectue par l'appel de la méthode <em>readLine()</em>,
+        qui bloque tant qu'elle n'a pas reçu une réponse.
+      </li>
+      <li>
+        Côté <b>serveur</b>, la méthode <em>processMessage()</em> est appelée chaque fois
+        que le serveur reçoit un message d'un client. Cette méthode récupère le message
+        (via son premier argument), effectue un traitement adéquat, puis retourne
+        la réponse à retourner au client (via son second argument).
+        Pour l'instant ce traitement est minimal : la réponse est le message reçu
+        précédé de <em>"OK: "</em>.
+        C'est cette fonction qu'il vous faudra modifier ci-après.
+      </li>
+    </ul>
+    <p>
+    Le client et le serveur utilisent les classes "maison" <em>Socket</em>,
+    <em>ServerSocket</em> et <em>SocketBuffer</em> qui permettent de faciliter
+    l'utilisation des sockets Unix.
+    <em>Socket</em> sert à créer une socket TCP ou UDP, <em>ServerSocket</em> est
+    une socket spéciale qui permet à un serveur de détecter les demandes de connexion
+    des clients, <em>SocketBuffer</em> sert à simplifier la gestion des messages.
+    Dans le cas général, les sockets "connectés" TCP (cf. ci-dessous) ne préservent pas les
+    frontières entre les messages: un message peut arriver fragmenté ou au contraire
+    être collé au message précédent. Les methodes <em>writeLine()</em> et <em>readLine()</em>
+    de <em>SocketBuffer</em> résolvent ce problème grâce à l'addition d'un
+    délimiteur entre les messages: le caractère newline <em>'\n'</em>
+    (attention les messages <b>ne doivent donc pas</b> contenir ce caractère !).
+    De plus :
+    </p>
+    <p>
+    <ul>
+      <li>
+        Le client et le serveur utilisent le <b>protocole connecté TCP/IP</b>
+        qui permet déchanger un <b>flux</b> d'octets (<b>stream</b> en anglais,
+        d'où le type <em>SOCK_STREAM</em>) entre deux programmes.
+        Ce protocole assure qu'il n'y a pas de paquets perdus et qu'ils arrivent toujours
+        dans l'ordre.
+      </li>
+      <li>
+        La connexion est <b>persistante</b> : quand on lance le client il se connecte
+        au serveur et reste connecté jusqu'à la terminaison du client.
+        Une autre possibilité serait d'établir une nouvelle connexion puis de la clore
+        à chaque échange client/serveur. On ne consommerait alors des ressources
+        reseau que pendant l'échange mais ça ralentirait un peu la communication.
+      </li>
+      <li>
+        Le dialogue est <b>synchrone</b> : le client envoie un message et bloque
+        jusqu'à la réception de la réponse. Ca simplifie la programmation mais
+        ça peut poser problème si la réponse est longue à arriver, en cas
+        d'erreur, etc. en particulier si le client est une interface graphique
+        (qui va se bloquer)
+      </li>
+      <li>
+        Le serveur utilise des threads. Il peut donc être connecté à plusieurs clients
+        simultanément et la méthode <em>processMessage()</em> peut être appelée
+        de manière concurrente.
+      </li>
+    </ul>
+    <p>
+    Commencez par vérifier que la communication client/serveur marche correctement,
+    c'est-à-dire que le client reçoit comme réponse le message qu'il a envoyé
+    précédé de "OK: ". Modifiez ensuite la partie serveur de telle manière que
+    le client puisse télécommander votre programme. Il faut au moins pouvoir
+    <b>rechercher</b> un objet multimédia (dans ce cas l'affichage doit se faire
+    sur la "télécommande", c'est-à-dire le client) et <b>jouer</b> un objet
+    multimédia (dans ce cas l'objet doit être joué sur la "set-top box",
+    c'est-à-dire le serveur).
+    </p>
+    <p>
+    <b>Remarques :</b>
+    <ul>
+      <li>
+        Vous aurez sans doute besoin d'utiliser la classe
+        <a href="http://www.cplusplus.com/reference/sstream/stringstream/"
+          target="doc">stringstream</a>.
+      Vous pourrez supposer pour l'instant que les noms des objets multimédia ne
+      contiennent pas d'espaces (ni de tabulations, ni de retours chariot).
+      On verra à la question suivante comment résoudre ce problème (vous pourrez
+      alors revenir sur cette question pour traiter le cas où les noms contiennent
+      des espaces)
+      </li>
+    </ul>
+
+    <b>Questions additionnelles</b> (vous pouvez passer ces questions si vous
+    êtes en retard) :
+    <ul>  
+      <li>
+        Vous pouvez rajouter toute commande qui ferait sens pour une télécommande
+        (et servira pour le TP suivant).
+      </li>
+      <li>
+        (si vous n'êtes pas en retard) utiliser une <em>map</em>
+        pour effectuer le lien entre le nom des commandes
+        et les fonctions correspondantes afin d'obtenir une plus grande
+        efficacité (c'est utile dans le cas où il y a beaucoup de commandes)
+        </li>
+      </ul>
+    </p>
+     <p>
+
+      
+      
+    
+       
+    
+    
+    <h3>14e étape. Sérialisation / désérialisation</h3>
+    <p>
+    C++ ne propose pas en standard de moyen de sérialiser les objets de manière
+    portable. On peut utiliser des extensions pour le faire (cf. Boost) ou juste
+    l'implémenter "à la main" dans les cas simples. C'est ce que l'on va
+    faire maintenant pour les tables d'objets multimédia. Notez qu'il peut-être
+    avantageux d'implémenter en même temps les fonctions d'écriture et de lecture,
+    ces deux fonctionnalités dependant l'une de l'autre.
+    </p>
+    <p>
+    Ecrivez toutes les méthodes nécessaires en vous inspirant du cours
+    puis testez les dans le <em>main()</em> en sauvegardant puis en relisant
+    la table d'objets multimédia (on laisse de côté la table de groupes).
+    On rappelle:
+    <ul>
+      <li>
+        qu'il faut utiliser 
+        <a href="http://www.cplusplus.com/reference/iostream/ofstream/"
+          target="doc"><b>ofstream</b></a> pour écrire sur un fichier, 
+        <a href="http://www.cplusplus.com/reference/iostream/ifstream/"
+          target="doc"><b>ifstream</b></a> pour lire depuis un fichier
+        et qu'il est nécessaire de vérifier si les fichiers ont pu être ouverts
+        et de les fermer à l'aide de leur méthode <em>close()</em> après usage.
+      </li>
+      <li>
+        qu'il faut écrire les attributs des objets de telle sorte que l'on puisse
+        ensuite les lire de manière non ambiguë. Faire en particulier attention
+        aux chaînes de caractères, qui peuvent contenir des espaces, et voire même
+        dans certains cas des tabulations ou des retours à la ligne (on pourra
+        par exemple utiliser <a href="QuotedString.tar.gz"><b>ces classes ou ces
+        fonctions</b></a>).
+      </li>
+      <li>
+        que pour lire - et donc créer - un objet à partir d'un fichier, il faut
+        connaître sa classe. Celle-ci doit donc être enregistrée lors de l'écriture.
+        De plus il est souhaitable d'implémenter une <b>fabrique d'objets</b>
+        permettant de créer les objets à partir du nom de leur classe.
+      </li>
+      <li>
+        enfin, bien sûr il ne faut pas oublier les principes de l'orienté
+        objet : chaque objet est le mieux placé pour savoir comment il doit
+        être lu ou écrit sur un fichier et l'implémentation doit se faire
+        en conséquence
+      </li>
+    </ul>
+    </p>
+
+      <b>Questions additionnelles</b> (vous pouvez passer ces questions si vous
+    êtes en retard) :
+    <ul>
+      <li>
+        faire en sorte que l'on puisse utiliser les opérateurs <em>operator&lt;&lt;</em>
+        et <em>operator&gt;&gt;</em>
+        pour sérialiser et désérialiser les objets. Comment faut-il procéder
+        et pourquoi ces opérateurs ne doivent pas être redéfinis sur une
+        hiérarchie de classes ?
+      </li>
+      <li>
+        Implémentez les méthodes nécessaires pour pouvoir également
+        (dé)sérialiser la table des groupes, en plus de la table des objets.
+        Attention : il ne faut bien sûr pas dupliquer les objets : les
+        groupes contiennent des pointeurs sur les objets et non les objets
+        eux-mêmes !
+      </li>
+    </ul>
+    </p>
+
+
+
+    
+    <h3>15e étape. Traitement des erreurs</h3>
+    <p>
+    La fiabilité des programmes repose fortement sur la qualité du traitement des
+    erreurs en cours d'exécution. Il faut en effet à tout prix éviter de produire
+    des résultats incohérents ou des plantages résultant de manipulations erronées.
+    Nous avons quelque peu négligé cet aspect dans les questions précédentes.
+    Exemples:
+    <ul>
+      <li>
+        on crée plusieurs groupes ou objets ayant le même nom
+      </li>
+      <li>
+        on supprime un groupe ou un objet qui n'existe pas
+      </li>
+      <li>
+        le nom contient des caractères invalides
+      </li>
+      <li>
+        le tableau de durées d'un Film a une taille nulle ou inférieure à zéro
+      </li>
+      <li>
+        etc.
+      </li>
+    </ul>
+    Il existe essentiellemnt deux stratégies pour traiter les erreurs.
+    La première consiste à retourner des <em>codes d'erreurs</em>
+    (ou un booléen ou NULL) lorsque l'on appelle
+    une fonction pouvant produire des erreurs.
+    La seconde consiste à générer des <em>exceptions</em>.
+    </p>
+    <p>
+    La première solution est plus permissive dans la mesure ou il est (hélas!) fréquent
+    que l'appelant ne vérifie pas le code rendu. Il est alors souhaitable que
+    la fonction réalise une action "raisonnable" en cas d'erreur
+    (par exemple ne rien faire si on demande de supprimer un objet qui n'existe pas,
+    à part renvoyer <em>false</em> ou un code d'erreur).
+    Cette solution pose aussi le problème de la propagation
+    des erreurs entre les fonctions (l'erreur pouvant se produire dans une fonction
+    appelée dans une fonction elle-même appelée dans une autre fonction, et ainsi
+    de suite).
+    </p>
+    <p>
+    La seconde solution est théoriquement plus sûre dans la mesure où les erreurs
+    doivent être obligatoirement traitées (via une clause <em>catch</em> sous
+    peine de provoquer la terminaison
+    du programme (ou d'interdire la compilation dans des langages comme Java).
+    En pratique, utilisée intensivement, elle peut conduire à une complexité
+    excessive du code et d'autres problèmes qui dépassent le cadre de ce cours
+    (cf. les spécifications d'exceptions de Java, abandonnées par C#
+    et obsolètes en C++).
+    </p>
+    <p>
+    A vous de jouer ! Gerez les principaux cas d'erreurs comme bon vous semble,
+    en utilisant la première ou la seconde stragégie, ou une combinaison des deux
+    suivant la sévérité des erreurs. Mais faites en sorte que votre code soit
+    cohérent par rapport à vos choix et justifiez les dans le rapport et/ou
+    la documentation générée par
+    <a href="http://www.doxygen.org/" target="doc"><b>Doxygen</b></a>.
+    </p>
+    <p>
+    <b>Note:</b> pour créer de nouvelles classes d'exceptions en C++ il est préférable
+    (mais pas obligatoire) de sous-classer une classe existante de la STL. L'exception
+    <a href="http://www.cplusplus.com/reference/std/stdexcept/runtime_error/" target="doc">
+      <b>runtime_error</b></a> (qui dérive de la classe <em>exception</em>) est
+    particulièrement appropriée et
+    son constructeur prend en argument un message d'erreur de type <em>string</em>.
+    Ce message pourra être récupéré au moment de la capture de l'exception grâce
+    à la méthode <em>what()</em> (cf. l'exemple au bas de cette
+    <a href="http://www.cplusplus.com/reference/std/exception/exception/" target="doc">
+      page</a>).
+    </p>
+    
+    
+    
+  
+    
+    
+    
+    
+    <h3>Suite</h3>
+    <p>
+    Ce TP aura une suite en Java et C++. Pour ne pas prendre de retard, on vous demande
+    dès à présent de rendre cette première partie.
+    </p>
+    <br>
+    
+    
+<!--    
+    
+    
+    <h2>Pour rendre le TP</h3>
+    <ol>
+      <li>
+        Verifiez que votre code compile et s'exécute correctement <em>depuis une
+          salle de TP Unix de l'Ecole</em>. La compilation doit pouvoir s'effectuer
+        en tapant <em>make</em> dans le Terminal
+        <p>
+        <b>Attention: un programme sans Makefile ou qui ne compile pas ou qui plante
+          sur une machine de l'Ecole ne sera pas pas examiné et sera considéré non rendu.</b>
+        <p>
+      </li>
+      
+      <li>
+        Documentez votre code en utilisant
+        <a href="http://www.doxygen.org/" target="doc">Doxygen</a> et
+        écrire un bref fichier <em>README</em> indiquant les questions traitées et
+        contenant les réponses aux questions ainsi que
+        tous les commentaires que vous jugerez utiles.
+        Ce fichier doit être en PDF ou en HTML (en UTF-8) ou au format texte (en UTF-8).
+        <p>
+        <b>N'oubliez pas de mettre votre nom</b> au moins dans le README et de
+        préférence aussi dans les autres fichiers.
+        <p>
+      </li>
+      
+      <li>
+        Créez un fichier <em>.zip</em> ou <em>.tar.gz</em> <b>(pas d'autre format !!!)</b>
+          contenant votre README, la documentation Doxygen et le code source. Ne mettez pas
+          l'executable ni les fichiers .o.
+        <p>
+      </li>
+      
+      <li>
+        Allez à l'URL
+        <a href="http://services.infres.enst.fr/rendutp/">http://services.infres.enst.fr/rendutp/</a>
+        puis cliquez, <em><b>suivant votre période</b></em>, soit sur <b>inf224-p1-c++</b>
+        soit sur <b>inf224-p2-c++</b>.
+        <br>
+        Entrez votre nom et téléchargez votre fichier zip ou tar.gz.
+        <br>
+        Si vous répétez l'opération, seule la dernière version téléchargée est prise en compte.
+        <br>
+        Notez que sur cette page la commande <b>aperçu</b> donne la liste des projets déposés.
+        Elle vous permet donc de vérifier que votre fichier a bien été déposé.
+        </p>
+        
+        <p>
+        <b><font color="red">ATTENTION A NE PAS VOUS TROMPER :  </font></b>
+        <ul>
+          <li>de dépot ou de PERIODE (inf224-p1-c++ pour la période P1
+            ou inf224-p2-c++ pour la période P2)</li>
+          <li>de fichier (celui contenant le bon projet, pas un fichier vide, pas votre boîte mail...)</li>
+          <li>de nom (le vôtre de préférence...)</li>
+          <li>?</li>
+        </ul>
+        
+        <font color="red">Seuls les projets figurant dans le bon dépôt seront pris en compte.</font>
+        </b>
+        Si vous avez un doute, utilisez la commande "aperçu".
+        </p>
+        
+      </li>
+    </ol>
+    
+-->
+
+    
+    <!-- ------------------------------------------------------------------- -->
+    
+    <br>
+    <hr>
+    <a href="http://www.telecom-paristech.fr/~elc">Eric Lecolinet</a>
+    <font color="darkgrey"> - http://www.telecom-paristech.fr/~elc - Telecom ParisTech</font>
+    <br>
+    <br>
+    
+  </body>
+</html>
+
