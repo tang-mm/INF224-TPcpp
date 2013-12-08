@@ -1,0 +1,203 @@
+\hypertarget{classFactory}{\section{Factory Class Reference}
+\label{classFactory}\index{Factory@{Factory}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr}$<$ \hyperlink{classPhoto}{Photo} $>$ \hyperlink{classFactory_a45e096d4e252f09009f5535d9fcdc909}{create\-Photo} (const string \&obj\-Name, const string \&path\-Prefix)
+\begin{DoxyCompactList}\small\item\em create an instance \hyperlink{classPhoto}{Photo} and add into tab\-Elem \end{DoxyCompactList}\item 
+virtual \hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr}$<$ \hyperlink{classVideo}{Video} $>$ \hyperlink{classFactory_a29b1c8f95044fa844dbce01ad9c8cd7d}{create\-Video} (const string \&obj\-Name, const string \&path\-Prefix)
+\begin{DoxyCompactList}\small\item\em create an instance \hyperlink{classVideo}{Video} and add into tab\-Elem \end{DoxyCompactList}\item 
+virtual \hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr}$<$ \hyperlink{classFilm}{Film} $>$ \hyperlink{classFactory_a5166d846318b026e636280cd222f1b88}{create\-Film} (const string \&obj\-Name, const string \&path\-Prefix)
+\begin{DoxyCompactList}\small\item\em create an instance \hyperlink{classFilm}{Film} and add into tab\-Elem \end{DoxyCompactList}\item 
+virtual \hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr}$<$ \hyperlink{classGroupe}{Groupe} $>$ \hyperlink{classFactory_aa82dc3b6cb060047cfdf5139fec206ee}{create\-Group} (const string \&grp\-Name)
+\begin{DoxyCompactList}\small\item\em create an instance \hyperlink{classGroupe}{Groupe} and add into tab\-Grp \end{DoxyCompactList}\item 
+virtual void \hyperlink{classFactory_a19c210120de78055b7d26952cbd7ccf9}{remove} (const string \&name)
+\begin{DoxyCompactList}\small\item\em remove object from the map \end{DoxyCompactList}\item 
+virtual void \hyperlink{classFactory_af428602526d9e9ad59c4cd47f8122ab5}{find} (const string \&name) const 
+\begin{DoxyCompactList}\small\item\em search for the object with the given name, print the attibutes on screen \end{DoxyCompactList}\item 
+virtual stringstream \& \hyperlink{classFactory_ac67265c1bee588c7073dee61cd4fedcf}{find\-And\-Send\-To\-Stream} (const string \&name, stringstream \&stream) const 
+\item 
+virtual void \hyperlink{classFactory_a86d5952126f2cb3e4e5fb8969be7bf16}{play} (const string \&name) const 
+\begin{DoxyCompactList}\small\item\em find the object with the given name and play \end{DoxyCompactList}\item 
+virtual void \hyperlink{classFactory_abf37af5ba84549ec2bbdc33a24bf5423}{print} () const 
+\item 
+\hypertarget{classFactory_aa90d5dfc315d1925e8706b666f748687}{virtual const map$<$ string, \\*
+\hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr}$<$ \hyperlink{classSource}{Source} $>$ $>$ \& {\bfseries get\-Tab\-Elem} () const }\label{classFactory_aa90d5dfc315d1925e8706b666f748687}
+
+\item 
+\hypertarget{classFactory_a6fa35d8e4547900bd396806c5d8fba37}{virtual const map$<$ string, \\*
+\hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr}$<$ \hyperlink{classGroupe}{Groupe} $>$ $>$ \& {\bfseries get\-Tab\-Grp} () const }\label{classFactory_a6fa35d8e4547900bd396806c5d8fba37}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classFactory_a5166d846318b026e636280cd222f1b88}{\index{Factory@{Factory}!create\-Film@{create\-Film}}
+\index{create\-Film@{create\-Film}!Factory@{Factory}}
+\subsubsection[{create\-Film}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intrusive\-\_\-ptr}$<$ {\bf Film} $>$ Factory\-::create\-Film (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{obj\-Name, }
+\item[{const string \&}]{path\-Prefix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classFactory_a5166d846318b026e636280cd222f1b88}
+
+
+create an instance \hyperlink{classFilm}{Film} and add into tab\-Elem 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj\-Name} & \\
+\hline
+{\em path\-Prefix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoient l'objet créé afin de pouvoir le manipuler ultérieurement. 
+\end{DoxyReturn}
+\hypertarget{classFactory_aa82dc3b6cb060047cfdf5139fec206ee}{\index{Factory@{Factory}!create\-Group@{create\-Group}}
+\index{create\-Group@{create\-Group}!Factory@{Factory}}
+\subsubsection[{create\-Group}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intrusive\-\_\-ptr}$<$ {\bf Groupe} $>$ Factory\-::create\-Group (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{grp\-Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classFactory_aa82dc3b6cb060047cfdf5139fec206ee}
+
+
+create an instance \hyperlink{classGroupe}{Groupe} and add into tab\-Grp 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grp\-Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoient l'objet créé afin de pouvoir le manipuler ultérieurement. 
+\end{DoxyReturn}
+\hypertarget{classFactory_a45e096d4e252f09009f5535d9fcdc909}{\index{Factory@{Factory}!create\-Photo@{create\-Photo}}
+\index{create\-Photo@{create\-Photo}!Factory@{Factory}}
+\subsubsection[{create\-Photo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intrusive\-\_\-ptr}$<$ {\bf Photo} $>$ Factory\-::create\-Photo (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{obj\-Name, }
+\item[{const string \&}]{path\-Prefix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classFactory_a45e096d4e252f09009f5535d9fcdc909}
+
+
+create an instance \hyperlink{classPhoto}{Photo} and add into tab\-Elem 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj\-Name} & \\
+\hline
+{\em path\-Prefix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the created object 
+\end{DoxyReturn}
+\hypertarget{classFactory_a29b1c8f95044fa844dbce01ad9c8cd7d}{\index{Factory@{Factory}!create\-Video@{create\-Video}}
+\index{create\-Video@{create\-Video}!Factory@{Factory}}
+\subsubsection[{create\-Video}]{\setlength{\rightskip}{0pt plus 5cm}{\bf intrusive\-\_\-ptr}$<$ {\bf Video} $>$ Factory\-::create\-Video (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{obj\-Name, }
+\item[{const string \&}]{path\-Prefix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classFactory_a29b1c8f95044fa844dbce01ad9c8cd7d}
+
+
+create an instance \hyperlink{classVideo}{Video} and add into tab\-Elem 
+
+
+\begin{DoxyParams}{Parameters}
+{\em obj\-Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em path\-Prefixnt} & l'objet créé afin de pouvoir le manipuler ultérieurement. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classFactory_af428602526d9e9ad59c4cd47f8122ab5}{\index{Factory@{Factory}!find@{find}}
+\index{find@{find}!Factory@{Factory}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}void Factory\-::find (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classFactory_af428602526d9e9ad59c4cd47f8122ab5}
+
+
+search for the object with the given name, print the attibutes on screen 
+
+Rechercher un objet multimédia ou un groupe à partir de son nom, donné en argument. Cette fonction doit permettre d'afficher les attributs d'un objet ans le Terminal. Dans le cas d'un groupe, afficher son nom puis les attributs des objets qu'il contient. 
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classFactory_ac67265c1bee588c7073dee61cd4fedcf}{\index{Factory@{Factory}!find\-And\-Send\-To\-Stream@{find\-And\-Send\-To\-Stream}}
+\index{find\-And\-Send\-To\-Stream@{find\-And\-Send\-To\-Stream}!Factory@{Factory}}
+\subsubsection[{find\-And\-Send\-To\-Stream}]{\setlength{\rightskip}{0pt plus 5cm}stringstream \& Factory\-::find\-And\-Send\-To\-Stream (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name, }
+\item[{stringstream \&}]{stream}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classFactory_ac67265c1bee588c7073dee61cd4fedcf}
+rechercher un objet et ecrire sa description dans un stringstream 
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em stream} & stringstream dans lequel le resultat va etre ecrit \\
+\hline
+\end{DoxyParams}
+\hypertarget{classFactory_a86d5952126f2cb3e4e5fb8969be7bf16}{\index{Factory@{Factory}!play@{play}}
+\index{play@{play}!Factory@{Factory}}
+\subsubsection[{play}]{\setlength{\rightskip}{0pt plus 5cm}void Factory\-::play (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classFactory_a86d5952126f2cb3e4e5fb8969be7bf16}
+
+
+find the object with the given name and play 
+
+Jouer un objet multimédia (à partir de son nom, donné en argument). Même chose que précédemment sauf que l'on appelle la méthode \hyperlink{classFactory_a86d5952126f2cb3e4e5fb8969be7bf16}{play()} au lieu d'afficher les attributs. 
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classFactory_abf37af5ba84549ec2bbdc33a24bf5423}{\index{Factory@{Factory}!print@{print}}
+\index{print@{print}!Factory@{Factory}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void Factory\-::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classFactory_abf37af5ba84549ec2bbdc33a24bf5423}
+show all available objects \hypertarget{classFactory_a19c210120de78055b7d26952cbd7ccf9}{\index{Factory@{Factory}!remove@{remove}}
+\index{remove@{remove}!Factory@{Factory}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void Factory\-::remove (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classFactory_a19c210120de78055b7d26952cbd7ccf9}
+
+
+remove object from the map 
+
+Supprimer un objet multimédia ou un groupe à partir de son nom, donné en argument. L'élément doit être enlevé de la table adéquate et détruit s'il n'appartient plus à aucune table. De plus, lorsqu'on supprime un objet multimédia il faut d'abord l'enlever de tous les groupes dans lesquels il figure. 
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+chercher d'abord dans le map des multimedia
+
+chercher s'il appartient à une table
+
+si non trouvé dans tab\-Elem, alors \char`\"{}name\char`\"{} est un groupe, chercher dans le map des groupes 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+factory.\-h\item 
+factory.\-cpp\end{DoxyCompactItemize}

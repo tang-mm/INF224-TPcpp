@@ -1,0 +1,75 @@
+\hypertarget{classintrusive__ptr}{\section{intrusive\-\_\-ptr$<$ T $>$ Class Template Reference}
+\label{classintrusive__ptr}\index{intrusive\-\_\-ptr$<$ T $>$@{intrusive\-\_\-ptr$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$intrusive\-\_\-ptr.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classintrusive__ptr_ae15c9aa35038587012d1b08729cc19c9}{typedef T {\bfseries element\-\_\-type}}\label{classintrusive__ptr_ae15c9aa35038587012d1b08729cc19c9}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classintrusive__ptr_a1a462a7c6f3247828d8360ca04511237}{{\bfseries intrusive\-\_\-ptr} (T $\ast$p, bool add\-\_\-ref=true)}\label{classintrusive__ptr_a1a462a7c6f3247828d8360ca04511237}
+
+\item 
+\hypertarget{classintrusive__ptr_a60d33e3607b90c2d7f315d2d0be19735}{{\footnotesize template$<$class U $>$ }\\{\bfseries intrusive\-\_\-ptr} (\hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr}$<$ U $>$ const \&rhs)}\label{classintrusive__ptr_a60d33e3607b90c2d7f315d2d0be19735}
+
+\item 
+\hypertarget{classintrusive__ptr_a1a05008b03d6cfb92dfa60515cd848d8}{{\bfseries intrusive\-\_\-ptr} (\hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr} const \&rhs)}\label{classintrusive__ptr_a1a05008b03d6cfb92dfa60515cd848d8}
+
+\item 
+\hypertarget{classintrusive__ptr_a3f784a56085dd6e9f711e57a803dd1dc}{{\footnotesize template$<$class U $>$ }\\\hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr} \& {\bfseries operator=} (\hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr}$<$ U $>$ const \&rhs)}\label{classintrusive__ptr_a3f784a56085dd6e9f711e57a803dd1dc}
+
+\item 
+\hypertarget{classintrusive__ptr_ae1f058e2b20ea4ef7c3c4c30c8c37694}{\hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr} \& {\bfseries operator=} (\hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr} const \&rhs)}\label{classintrusive__ptr_ae1f058e2b20ea4ef7c3c4c30c8c37694}
+
+\item 
+\hypertarget{classintrusive__ptr_acbf9dbecf8e789db853832d84e2c7e19}{\hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr} \& {\bfseries operator=} (T $\ast$rhs)}\label{classintrusive__ptr_acbf9dbecf8e789db853832d84e2c7e19}
+
+\item 
+\hypertarget{classintrusive__ptr_ae360b0fffd335b683b350c154922c6db}{void {\bfseries reset} ()}\label{classintrusive__ptr_ae360b0fffd335b683b350c154922c6db}
+
+\item 
+\hypertarget{classintrusive__ptr_a81e2fb688afba02de9ecf2006caeb62e}{void {\bfseries reset} (T $\ast$rhs)}\label{classintrusive__ptr_a81e2fb688afba02de9ecf2006caeb62e}
+
+\item 
+\hypertarget{classintrusive__ptr_a70192c07e3ff5035942095a5d2d97c34}{T $\ast$ {\bfseries get} () const }\label{classintrusive__ptr_a70192c07e3ff5035942095a5d2d97c34}
+
+\item 
+\hypertarget{classintrusive__ptr_a63f7f0b02c547127f9f68ecdb01f7aa6}{T \& {\bfseries operator$\ast$} () const }\label{classintrusive__ptr_a63f7f0b02c547127f9f68ecdb01f7aa6}
+
+\item 
+\hypertarget{classintrusive__ptr_a4756c9e89a1a057e2c911d8224197d31}{T $\ast$ {\bfseries operator-\/$>$} () const }\label{classintrusive__ptr_a4756c9e89a1a057e2c911d8224197d31}
+
+\item 
+\hypertarget{classintrusive__ptr_a1a71711829594617e226fada9b7ef351}{{\bfseries operator unspecified\-\_\-bool\-\_\-type} () const }\label{classintrusive__ptr_a1a71711829594617e226fada9b7ef351}
+
+\item 
+\hypertarget{classintrusive__ptr_aee167762c6829dac96f664b4ab505e39}{bool {\bfseries operator!} () const }\label{classintrusive__ptr_aee167762c6829dac96f664b4ab505e39}
+
+\item 
+\hypertarget{classintrusive__ptr_a95826a79f706bc5c6b9fd28ae334e974}{void {\bfseries swap} (\hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr} \&rhs)}\label{classintrusive__ptr_a95826a79f706bc5c6b9fd28ae334e974}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$class intrusive\-\_\-ptr$<$ T $>$}
+
+\hyperlink{classintrusive__ptr}{intrusive\-\_\-ptr}\-: a smart pointer that uses intrusive reference counting. Relies on unqualified calls to 
+\begin{DoxyPre}
+     void intrusive\_ptr\_add\_ref(T * p);
+     void intrusive\_ptr\_release(T * p);
+\end{DoxyPre}
+ (p != 0)
+
+The object is responsible for destroying itself. 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+intrusive\-\_\-ptr.\-h\end{DoxyCompactItemize}

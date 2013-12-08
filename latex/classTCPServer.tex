@@ -1,0 +1,78 @@
+\hypertarget{classTCPServer}{\section{T\-C\-P\-Server Class Reference}
+\label{classTCPServer}\index{T\-C\-P\-Server@{T\-C\-P\-Server}}
+}
+
+
+{\ttfamily \#include $<$T\-C\-P\-Server.\-h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structTCPServer_1_1Hook}{Hook}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classTCPServer_a7a1cd88232db7a3551923ac4fafbad27}{{\bfseries T\-C\-P\-Server} (int buffer\-\_\-size=1000)}\label{classTCPServer_a7a1cd88232db7a3551923ac4fafbad27}
+
+\item 
+virtual int \hyperlink{classTCPServer_a1409041961e91f1dbc4933483b4c3b23}{run} (int port)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{classTCPServer_a707f8004c0fc8c50aafd12d187b853b9}{process\-Message} (const std\-::string \&message, std\-::string \&response)
+\begin{DoxyCompactList}\small\item\em processes a message; the connection will be closed if false is returned. \end{DoxyCompactList}\item 
+\hypertarget{classTCPServer_a5d1c3dced9ab7bdc5d5f13866f1eee79}{virtual void \hyperlink{classTCPServer_a5d1c3dced9ab7bdc5d5f13866f1eee79}{read\-Messages} (\hyperlink{classSocket}{Socket} $\ast$)}\label{classTCPServer_a5d1c3dced9ab7bdc5d5f13866f1eee79}
+
+\begin{DoxyCompactList}\small\item\em reads messages from a given socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classTCPServer_a4b1fcd6fb0425d404f1b07a708c6f0f5}{static void $\ast$ \hyperlink{classTCPServer_a4b1fcd6fb0425d404f1b07a708c6f0f5}{start\-Read\-Message\-Thread} (void $\ast$hook)}\label{classTCPServer_a4b1fcd6fb0425d404f1b07a708c6f0f5}
+
+\begin{DoxyCompactList}\small\item\em starts a thread for reading messages; the argument mus be a \hyperlink{structTCPServer_1_1Hook}{Hook}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classTCPServer_a2399732a7af844b9a314e03a68fd6195}{\hyperlink{classServerSocket}{Server\-Socket} {\bfseries servsock}}\label{classTCPServer_a2399732a7af844b9a314e03a68fd6195}
+
+\item 
+\hypertarget{classTCPServer_ab8bc6d00f236389ff0c89a140507f4fa}{std\-::vector$<$ pthread\-\_\-t $>$ {\bfseries threads}}\label{classTCPServer_ab8bc6d00f236389ff0c89a140507f4fa}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+T\-C\-P/\-I\-P command server for remote clients. Commands are executed sequentially (no threads) 
+
+\subsection{Member Function Documentation}
+\hypertarget{classTCPServer_a707f8004c0fc8c50aafd12d187b853b9}{\index{T\-C\-P\-Server@{T\-C\-P\-Server}!process\-Message@{process\-Message}}
+\index{process\-Message@{process\-Message}!TCPServer@{T\-C\-P\-Server}}
+\subsubsection[{process\-Message}]{\setlength{\rightskip}{0pt plus 5cm}bool T\-C\-P\-Server\-::process\-Message (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{message, }
+\item[{std\-::string \&}]{response}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{classTCPServer_a707f8004c0fc8c50aafd12d187b853b9}
+
+
+processes a message; the connection will be closed if false is returned. 
+
+process message, react to telecommand from Client lister tous les objets
+
+ou recherche un objet et l'afficher au cote client
+
+ou trouver et jouer un objet au cote serveur \hypertarget{classTCPServer_a1409041961e91f1dbc4933483b4c3b23}{\index{T\-C\-P\-Server@{T\-C\-P\-Server}!run@{run}}
+\index{run@{run}!TCPServer@{T\-C\-P\-Server}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}int T\-C\-P\-Server\-::run (
+\begin{DoxyParamCaption}
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classTCPServer_a1409041961e91f1dbc4933483b4c3b23}
+starts the main loop of the server on this port. returns 0 for normal termination, a value $<$ 0 for an error\-: F\-A\-I\-L\-E\-D = -\/1, U\-N\-K\-N\-O\-W\-N\-\_\-\-H\-O\-S\-T = -\/2, I\-N\-V\-A\-L\-I\-D\-\_\-\-S\-O\-C\-K\-E\-T = -\/3 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+T\-C\-P\-Server.\-h\item 
+T\-C\-P\-Server.\-cpp\end{DoxyCompactItemize}

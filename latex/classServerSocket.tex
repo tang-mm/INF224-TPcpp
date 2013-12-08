@@ -1,0 +1,140 @@
+\hypertarget{classServerSocket}{\section{Server\-Socket Class Reference}
+\label{classServerSocket}\index{Server\-Socket@{Server\-Socket}}
+}
+
+
+{\ttfamily \#include $<$Socket.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classServerSocket_a668d35aeea12aafa0025ecbc6313113f}{Server\-Socket} (int type=S\-O\-C\-K\-\_\-\-S\-T\-R\-E\-A\-M)
+\item 
+virtual \hyperlink{classSocket}{Socket} $\ast$ \hyperlink{classServerSocket_accc3d56d42aa50a5f3c920cf0b26959b}{accept} ()
+\item 
+virtual int \hyperlink{classServerSocket_ad5281fe6c005bca007a9a758bd612481}{bind} (int port, int backlog=50)
+\item 
+\hypertarget{classServerSocket_a3eac6d5571bb092622d328dbda2de2cf}{virtual int \hyperlink{classServerSocket_a3eac6d5571bb092622d328dbda2de2cf}{close} ()}\label{classServerSocket_a3eac6d5571bb092622d328dbda2de2cf}
+
+\begin{DoxyCompactList}\small\item\em closes the socket. \end{DoxyCompactList}\item 
+\hypertarget{classServerSocket_a73a32b4697d3ff2bc9a68700f06e4dfb}{int \hyperlink{classServerSocket_a73a32b4697d3ff2bc9a68700f06e4dfb}{get\-File\-Descriptor} () const }\label{classServerSocket_a73a32b4697d3ff2bc9a68700f06e4dfb}
+
+\begin{DoxyCompactList}\small\item\em returns the file descriptor of the socket. \end{DoxyCompactList}\item 
+void \hyperlink{classServerSocket_afe81d7c30d1e963e6a043b868560dbbd}{handle\-Sig\-Pipe} (void($\ast$function)(int signal))
+\item 
+void \hyperlink{classServerSocket_ac159a12414df54dfef149a8de6aacb20}{ignore\-Sig\-Pipe} ()
+\begin{DoxyCompactList}\small\item\em ignore S\-I\-G\-P\-I\-P\-E signals ( \end{DoxyCompactList}\item 
+int \hyperlink{classServerSocket_a7ad8a5581c52046e641b32d96eb23406}{get\-Option} (int level, int optname, void $\ast$optval, socklen\-\_\-t $\ast$optlen)
+\item 
+int \hyperlink{classServerSocket_ad69fa5c5891f028192a291044b9191e2}{set\-Option} (int level, int optname, const void $\ast$optval, socklen\-\_\-t optlen)
+\item 
+\hypertarget{classServerSocket_ab34154bc6114c638ae02f5e018121099}{int \hyperlink{classServerSocket_ab34154bc6114c638ae02f5e018121099}{set\-Receive\-Buffer\-Size} (int size)}\label{classServerSocket_ab34154bc6114c638ae02f5e018121099}
+
+\begin{DoxyCompactList}\small\item\em sets the S\-O\-\_\-\-R\-C\-V\-B\-U\-F option to the specified value. \end{DoxyCompactList}\item 
+\hypertarget{classServerSocket_ae60d7cc31ad535e5d3cac42e38b8ec98}{int \hyperlink{classServerSocket_ae60d7cc31ad535e5d3cac42e38b8ec98}{set\-Reuse\-Address} (bool)}\label{classServerSocket_ae60d7cc31ad535e5d3cac42e38b8ec98}
+
+\begin{DoxyCompactList}\small\item\em enables/disables the S\-O\-\_\-\-R\-E\-U\-S\-E\-A\-D\-D\-R socket option. \end{DoxyCompactList}\item 
+\hypertarget{classServerSocket_aedb9144c9c375fcb14ac47bcb9d2eb17}{int \hyperlink{classServerSocket_aedb9144c9c375fcb14ac47bcb9d2eb17}{set\-So\-Timeout} (int timeout)}\label{classServerSocket_aedb9144c9c375fcb14ac47bcb9d2eb17}
+
+\begin{DoxyCompactList}\small\item\em enables/disables S\-O\-\_\-\-T\-I\-M\-E\-O\-U\-T with the specified timeout (in milliseconds). \end{DoxyCompactList}\item 
+\hypertarget{classServerSocket_a9e5e1ee852ba26156c757a0086b780fe}{int \hyperlink{classServerSocket_a9e5e1ee852ba26156c757a0086b780fe}{set\-Tcp\-No\-Delay} (bool)}\label{classServerSocket_a9e5e1ee852ba26156c757a0086b780fe}
+
+\begin{DoxyCompactList}\small\item\em turns on/off T\-C\-P coalescence (useful in some cases to avoid delays). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+T\-C\-P/\-I\-P or Datagram I\-N\-E\-T socket server. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classServerSocket_a668d35aeea12aafa0025ecbc6313113f}{\index{Server\-Socket@{Server\-Socket}!Server\-Socket@{Server\-Socket}}
+\index{Server\-Socket@{Server\-Socket}!ServerSocket@{Server\-Socket}}
+\subsubsection[{Server\-Socket}]{\setlength{\rightskip}{0pt plus 5cm}Server\-Socket\-::\-Server\-Socket (
+\begin{DoxyParamCaption}
+\item[{int}]{type = {\ttfamily SOCK\-\_\-STREAM}}
+\end{DoxyParamCaption}
+)}}\label{classServerSocket_a668d35aeea12aafa0025ecbc6313113f}
+creates a new \hyperlink{classServerSocket}{Server\-Socket}. Creates a listening A\-F\-\_\-\-I\-N\-E\-T socket (using the I\-Pv4 Internet protocol) that waits for connection requests by client sockets. 'type' can be\-:
+\begin{DoxyItemize}
+\item S\-O\-C\-K\-\_\-\-S\-T\-R\-E\-A\-M (the default) for T\-C\-P/\-I\-P connected sockets
+\item S\-O\-C\-K\-\_\-\-D\-G\-R\-A\-M for U\-D\-P datagram sockets 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\hypertarget{classServerSocket_accc3d56d42aa50a5f3c920cf0b26959b}{\index{Server\-Socket@{Server\-Socket}!accept@{accept}}
+\index{accept@{accept}!ServerSocket@{Server\-Socket}}
+\subsubsection[{accept}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Socket} $\ast$ Server\-Socket\-::accept (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classServerSocket_accc3d56d42aa50a5f3c920cf0b26959b}
+accepts a new connection request and returns the corresponding socket. By default, this function blocks the caller until a connection is present \begin{DoxyReturn}{Returns}
+Returns the new \hyperlink{classSocket}{Socket} or N\-U\-L\-L on error 
+\end{DoxyReturn}
+\hypertarget{classServerSocket_ad5281fe6c005bca007a9a758bd612481}{\index{Server\-Socket@{Server\-Socket}!bind@{bind}}
+\index{bind@{bind}!ServerSocket@{Server\-Socket}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}int Server\-Socket\-::bind (
+\begin{DoxyParamCaption}
+\item[{int}]{port, }
+\item[{int}]{backlog = {\ttfamily 50}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classServerSocket_ad5281fe6c005bca007a9a758bd612481}
+assigns this port to the socket on localhost. \begin{DoxyReturn}{Returns}
+returns 0 on success or a negative value on error which is one of\-:
+\begin{DoxyItemize}
+\item Socket\-::\-F\-A\-I\-L\-E\-D (-\/1)\-: could not connect
+\item Socket\-::\-I\-N\-V\-A\-L\-I\-D\-\_\-\-S\-O\-C\-K\-E\-T\-: wrong socket type. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\hypertarget{classServerSocket_a7ad8a5581c52046e641b32d96eb23406}{\index{Server\-Socket@{Server\-Socket}!get\-Option@{get\-Option}}
+\index{get\-Option@{get\-Option}!ServerSocket@{Server\-Socket}}
+\subsubsection[{get\-Option}]{\setlength{\rightskip}{0pt plus 5cm}int Server\-Socket\-::get\-Option (
+\begin{DoxyParamCaption}
+\item[{int}]{level, }
+\item[{int}]{optname, }
+\item[{void $\ast$}]{optval, }
+\item[{socklen\-\_\-t $\ast$}]{optlen}
+\end{DoxyParamCaption}
+)}}\label{classServerSocket_a7ad8a5581c52046e641b32d96eb23406}
+gets socket options. Same arguments and effect as the getsockopt() system call. \begin{DoxyReturn}{Returns}
+On success, zero is returned. On error, -\/1 is returned. 
+\end{DoxyReturn}
+\hypertarget{classServerSocket_afe81d7c30d1e963e6a043b868560dbbd}{\index{Server\-Socket@{Server\-Socket}!handle\-Sig\-Pipe@{handle\-Sig\-Pipe}}
+\index{handle\-Sig\-Pipe@{handle\-Sig\-Pipe}!ServerSocket@{Server\-Socket}}
+\subsubsection[{handle\-Sig\-Pipe}]{\setlength{\rightskip}{0pt plus 5cm}void Server\-Socket\-::handle\-Sig\-Pipe (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(int signal)}]{function}
+\end{DoxyParamCaption}
+)}}\label{classServerSocket_afe81d7c30d1e963e6a043b868560dbbd}
+handle S\-I\-G\-P\-I\-P\-E signals. Sockets may abort programs by throwing a S\-I\-G\-P\-I\-P\-E signal. The function given as an argument will be called instead of aborting the program.  \hyperlink{classServerSocket_ac159a12414df54dfef149a8de6aacb20}{ignore\-Sig\-Pipe()} \hypertarget{classServerSocket_ac159a12414df54dfef149a8de6aacb20}{\index{Server\-Socket@{Server\-Socket}!ignore\-Sig\-Pipe@{ignore\-Sig\-Pipe}}
+\index{ignore\-Sig\-Pipe@{ignore\-Sig\-Pipe}!ServerSocket@{Server\-Socket}}
+\subsubsection[{ignore\-Sig\-Pipe}]{\setlength{\rightskip}{0pt plus 5cm}void Server\-Socket\-::ignore\-Sig\-Pipe (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classServerSocket_ac159a12414df54dfef149a8de6aacb20}
+
+
+ignore S\-I\-G\-P\-I\-P\-E signals ( 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classServerSocket_afe81d7c30d1e963e6a043b868560dbbd}{handle\-Sig\-Pipe()}). 
+\end{DoxySeeAlso}
+\hypertarget{classServerSocket_ad69fa5c5891f028192a291044b9191e2}{\index{Server\-Socket@{Server\-Socket}!set\-Option@{set\-Option}}
+\index{set\-Option@{set\-Option}!ServerSocket@{Server\-Socket}}
+\subsubsection[{set\-Option}]{\setlength{\rightskip}{0pt plus 5cm}int Server\-Socket\-::set\-Option (
+\begin{DoxyParamCaption}
+\item[{int}]{level, }
+\item[{int}]{optname, }
+\item[{const void $\ast$}]{optval, }
+\item[{socklen\-\_\-t}]{optlen}
+\end{DoxyParamCaption}
+)}}\label{classServerSocket_ad69fa5c5891f028192a291044b9191e2}
+sets socket options. Same arguments and effect as the setsockopt() system call. \begin{DoxyReturn}{Returns}
+On success, zero is returned. On error, -\/1 is returned.  helper functions \hyperlink{classServerSocket_ae60d7cc31ad535e5d3cac42e38b8ec98}{set\-Reuse\-Address()}, \hyperlink{classServerSocket_a9e5e1ee852ba26156c757a0086b780fe}{set\-Tcp\-No\-Delay()}, etc. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Socket.\-h\item 
+Socket.\-cpp\end{DoxyCompactItemize}

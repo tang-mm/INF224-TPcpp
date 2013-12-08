@@ -1,0 +1,133 @@
+\hypertarget{classSocketBuffer}{\section{Socket\-Buffer Class Reference}
+\label{classSocketBuffer}\index{Socket\-Buffer@{Socket\-Buffer}}
+}
+
+
+{\ttfamily \#include $<$Socket.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSocketBuffer_ad726b4173f7bb35a76f45ce4efb87cb7}{Socket\-Buffer} (\hyperlink{classSocket}{Socket} $\ast$)
+\item 
+virtual ssize\-\_\-t \hyperlink{classSocketBuffer_a26cf495283bfd370bd0c1f1503aa3a23}{write} (const void $\ast$buf, size\-\_\-t len)
+\item 
+virtual ssize\-\_\-t \hyperlink{classSocketBuffer_a8e5c92d79ded209859fcebe263ec562a}{read} (void $\ast$buf, size\-\_\-t len)
+\item 
+virtual ssize\-\_\-t \hyperlink{classSocketBuffer_aac837dee402bd3e1c3b9743296077788}{write\-Line} (const std\-::string \&)
+\item 
+virtual ssize\-\_\-t \hyperlink{classSocketBuffer_ac20bf5c29b46baa4bbb313d3685464e0}{read\-Line} (std\-::string \&)
+\item 
+virtual ssize\-\_\-t \hyperlink{classSocketBuffer_a893d29a2deb893cdd54ccc76a9ecb7ee}{write\-Line} (const char $\ast$str, size\-\_\-t len)
+\item 
+virtual ssize\-\_\-t \hyperlink{classSocketBuffer_aa376d145f76d0868beccd29cb033c745}{read\-Line} (char $\ast$str, size\-\_\-t len, bool \&truncated)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for exchanging data blocks or text lines between S\-O\-C\-K\-\_\-\-S\-T\-R\-E\-A\-M sockets. S\-O\-C\-K\-\_\-\-S\-T\-R\-E\-A\-M (i.\-e. T\-C\-P/\-I\-P) sockets do not preserve record boundaries. Messages can thus be split or merged so that one call to \hyperlink{classSocket_a9275eacdb64056a53cf4b9cf54cd2f1a}{Socket\-::send()} on the sending side does not necessarily correspond to one call to \hyperlink{classSocket_aa5e98b6f2c4e26fcf90d71c8386fc09d}{Socket\-::receive()} on the receiving side. This class makes it easier to solve this problem by providing functions that call send() or receive() as many times as needed. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classSocketBuffer_ad726b4173f7bb35a76f45ce4efb87cb7}{\index{Socket\-Buffer@{Socket\-Buffer}!Socket\-Buffer@{Socket\-Buffer}}
+\index{Socket\-Buffer@{Socket\-Buffer}!SocketBuffer@{Socket\-Buffer}}
+\subsubsection[{Socket\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}Socket\-Buffer\-::\-Socket\-Buffer (
+\begin{DoxyParamCaption}
+\item[{{\bf Socket} $\ast$}]{\-\_\-sock}
+\end{DoxyParamCaption}
+)}}\label{classSocketBuffer_ad726b4173f7bb35a76f45ce4efb87cb7}
+constructor. Argument must be a valid S\-O\-C\-K\-\_\-\-S\-T\-R\-E\-A\-M socket. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classSocketBuffer_a8e5c92d79ded209859fcebe263ec562a}{\index{Socket\-Buffer@{Socket\-Buffer}!read@{read}}
+\index{read@{read}!SocketBuffer@{Socket\-Buffer}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}ssize\-\_\-t Socket\-Buffer\-::read (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{buf, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSocketBuffer_a8e5c92d79ded209859fcebe263ec562a}
+Receives a fixed number of bytes from a connected socket. Calls \hyperlink{classSocket_aa5e98b6f2c4e26fcf90d71c8386fc09d}{Socket\-::receive()} as many times as needed to get 'len' bytes. \begin{DoxyReturn}{Returns}
+the number of bytes received, -\/1 in case of an error, 0 at end-\/of-\/stream (e.\-g. if shutdown\-Output() was called on the other side). 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classSocket_aa5e98b6f2c4e26fcf90d71c8386fc09d}{Socket\-::receive()} for more details. 
+\end{DoxySeeAlso}
+\hypertarget{classSocketBuffer_ac20bf5c29b46baa4bbb313d3685464e0}{\index{Socket\-Buffer@{Socket\-Buffer}!read\-Line@{read\-Line}}
+\index{read\-Line@{read\-Line}!SocketBuffer@{Socket\-Buffer}}
+\subsubsection[{read\-Line}]{\setlength{\rightskip}{0pt plus 5cm}virtual ssize\-\_\-t Socket\-Buffer\-::read\-Line (
+\begin{DoxyParamCaption}
+\item[{std\-::string \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSocketBuffer_ac20bf5c29b46baa4bbb313d3685464e0}
+reads a line of text from a connected socket. Reads characters from the socket and stores them into str until a newline (character '\par
+' or '') have been read or the end-\/of-\/stream is reached. \begin{DoxyReturn}{Returns}
+the number of bytes received including the newline), -\/1 in case of an error, 0 at end-\/of-\/stream (e.\-g. if shutdown\-Output() was called on the other side). 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classSocketBuffer_a8e5c92d79ded209859fcebe263ec562a}{read()} for more detail. 
+\end{DoxySeeAlso}
+\hypertarget{classSocketBuffer_aa376d145f76d0868beccd29cb033c745}{\index{Socket\-Buffer@{Socket\-Buffer}!read\-Line@{read\-Line}}
+\index{read\-Line@{read\-Line}!SocketBuffer@{Socket\-Buffer}}
+\subsubsection[{read\-Line}]{\setlength{\rightskip}{0pt plus 5cm}ssize\-\_\-t Socket\-Buffer\-::read\-Line (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{size\-\_\-t}]{len, }
+\item[{bool \&}]{truncated}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSocketBuffer_aa376d145f76d0868beccd29cb033c745}
+reads a line of text from a connected socket. Reads characters from the socket and stores them into str until (num-\/1) characters have been read or either a newline (character '\par
+' or '') or the end-\/of-\/stream is reached. A terminating null character is always appended. \begin{DoxyReturn}{Returns}
+the number of bytes received including the newline), -\/1 in case of an error, 0 at end-\/of-\/stream (e.\-g. if shutdown\-Output() was called on the other side). 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classSocketBuffer_a8e5c92d79ded209859fcebe263ec562a}{read()} for more details. 
+\end{DoxySeeAlso}
+\hypertarget{classSocketBuffer_a26cf495283bfd370bd0c1f1503aa3a23}{\index{Socket\-Buffer@{Socket\-Buffer}!write@{write}}
+\index{write@{write}!SocketBuffer@{Socket\-Buffer}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}ssize\-\_\-t Socket\-Buffer\-::write (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{buf, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSocketBuffer_a26cf495283bfd370bd0c1f1503aa3a23}
+sends a fixed number of bytes to a connected socket. Calls \hyperlink{classSocket_a9275eacdb64056a53cf4b9cf54cd2f1a}{Socket\-::send()} as many times as needed to send 'len' bytes. \begin{DoxyReturn}{Returns}
+the number of bytes sent or -\/1 in case of an error 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classSocket_a9275eacdb64056a53cf4b9cf54cd2f1a}{Socket\-::send()} for more details. 
+\end{DoxySeeAlso}
+\hypertarget{classSocketBuffer_aac837dee402bd3e1c3b9743296077788}{\index{Socket\-Buffer@{Socket\-Buffer}!write\-Line@{write\-Line}}
+\index{write\-Line@{write\-Line}!SocketBuffer@{Socket\-Buffer}}
+\subsubsection[{write\-Line}]{\setlength{\rightskip}{0pt plus 5cm}virtual ssize\-\_\-t Socket\-Buffer\-::write\-Line (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSocketBuffer_aac837dee402bd3e1c3b9743296077788}
+sends a line of text to a connected socket. Same effect as \hyperlink{classSocketBuffer_a26cf495283bfd370bd0c1f1503aa3a23}{write()} except that a newline (character '\par
+' ) is added to the end of the string. \begin{DoxyReturn}{Returns}
+the number of bytes sent (including the newline) or -\/1 in case of an error. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classSocketBuffer_a26cf495283bfd370bd0c1f1503aa3a23}{write()} for more details. 
+\end{DoxySeeAlso}
+\hypertarget{classSocketBuffer_a893d29a2deb893cdd54ccc76a9ecb7ee}{\index{Socket\-Buffer@{Socket\-Buffer}!write\-Line@{write\-Line}}
+\index{write\-Line@{write\-Line}!SocketBuffer@{Socket\-Buffer}}
+\subsubsection[{write\-Line}]{\setlength{\rightskip}{0pt plus 5cm}ssize\-\_\-t Socket\-Buffer\-::write\-Line (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str, }
+\item[{size\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classSocketBuffer_a893d29a2deb893cdd54ccc76a9ecb7ee}
+sends a line of text to a connected socket. Same effect as \hyperlink{classSocketBuffer_a26cf495283bfd370bd0c1f1503aa3a23}{write()} except that a newline (character '\par
+' ) is added to the end of the string. \begin{DoxyReturn}{Returns}
+the number of bytes sent (including the newline) or -\/1 in case of an error. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{classSocketBuffer_a26cf495283bfd370bd0c1f1503aa3a23}{write()} for more details. 
+\end{DoxySeeAlso}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Socket.\-h\item 
+Socket.\-cpp\end{DoxyCompactItemize}

@@ -1,0 +1,114 @@
+\hypertarget{classFilm}{\section{Film Class Reference}
+\label{classFilm}\index{Film@{Film}}
+}
+
+
+The \hyperlink{classFilm}{Film} class heritee de la classe \hyperlink{classVideo}{Video}.  
+
+
+
+
+{\ttfamily \#include $<$film.\-h$>$}
+
+Inheritance diagram for Film\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{classFilm}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classFilm_af2835db2b0ef3a87aaa3222f4d9d1ae3}{\hyperlink{classFilm_af2835db2b0ef3a87aaa3222f4d9d1ae3}{Film} ()}\label{classFilm_af2835db2b0ef3a87aaa3222f4d9d1ae3}
+
+\begin{DoxyCompactList}\small\item\em constructeur \end{DoxyCompactList}\item 
+\hypertarget{classFilm_aa96dec38ef2e8db7fb03a68fc3d26da1}{{\bfseries Film} (string \-\_\-obj\-Name)}\label{classFilm_aa96dec38ef2e8db7fb03a68fc3d26da1}
+
+\item 
+\hypertarget{classFilm_a80fb97da0e99dffe97ea2eccc29c866f}{{\bfseries Film} (string \-\_\-obj\-Name, string path\-Prefix)}\label{classFilm_a80fb97da0e99dffe97ea2eccc29c866f}
+
+\item 
+\hypertarget{classFilm_a38f7d6e8e299bce1604f8300f60052f7}{{\bfseries Film} (string \-\_\-obj\-Name, string path\-Prefix, int \-\_\-dur)}\label{classFilm_a38f7d6e8e299bce1604f8300f60052f7}
+
+\item 
+\hypertarget{classFilm_a34c9de2efb9554ce1192e4110d98806b}{\hyperlink{classFilm_a34c9de2efb9554ce1192e4110d98806b}{Film} (const \hyperlink{classFilm}{Film} \&)}\label{classFilm_a34c9de2efb9554ce1192e4110d98806b}
+
+\begin{DoxyCompactList}\small\item\em constructeur a partir d'une autre instance \end{DoxyCompactList}\item 
+\hyperlink{classFilm}{Film} \& \hyperlink{classFilm_a2691ad8cf20210033cc35a6aa28e8553}{operator=} (const \hyperlink{classFilm}{Film} \&)
+\begin{DoxyCompactList}\small\item\em redefinition de l'operateur = \end{DoxyCompactList}\item 
+\hypertarget{classFilm_a8dab653f8a6c0635ca5ddbe0bbdd9a25}{virtual \hyperlink{classFilm_a8dab653f8a6c0635ca5ddbe0bbdd9a25}{$\sim$\-Film} ()}\label{classFilm_a8dab653f8a6c0635ca5ddbe0bbdd9a25}
+
+\begin{DoxyCompactList}\small\item\em destructeur \end{DoxyCompactList}\item 
+virtual void \hyperlink{classFilm_a27097a4f146d22c069f4ac429d40372d}{set\-Tab\-Dur} (const int $\ast$\-\_\-tab\-Dur, int size)
+\begin{DoxyCompactList}\small\item\em setter \end{DoxyCompactList}\item 
+virtual const int $\ast$ \hyperlink{classFilm_a3ac1dee35b575835c68e92bf64826618}{get\-Tab\-Dur} () const 
+\begin{DoxyCompactList}\small\item\em getter du tableau de durees \end{DoxyCompactList}\item 
+virtual int \hyperlink{classFilm_a0dfdcf162d9a84e965c22435ca146310}{get\-Nb\-Chap} () const 
+\begin{DoxyCompactList}\small\item\em getter du nombre de chapitres \end{DoxyCompactList}\item 
+\hypertarget{classFilm_a2dfafda0577fa5292674cb937eb7c6aa}{virtual void \hyperlink{classFilm_a2dfafda0577fa5292674cb937eb7c6aa}{print} () const }\label{classFilm_a2dfafda0577fa5292674cb937eb7c6aa}
+
+\begin{DoxyCompactList}\small\item\em affichage \end{DoxyCompactList}\item 
+\hypertarget{classFilm_a0fb4461cad5926a69443041887b21dbc}{virtual std\-::stringstream \& \hyperlink{classFilm_a0fb4461cad5926a69443041887b21dbc}{print\-To\-Stream} (stringstream \&stream) const }\label{classFilm_a0fb4461cad5926a69443041887b21dbc}
+
+\begin{DoxyCompactList}\small\item\em ecrire la descriptio dans un stringstream \end{DoxyCompactList}\item 
+\hypertarget{classFilm_a2da141229a61f420e3fc099124434700}{virtual void \hyperlink{classFilm_a2da141229a61f420e3fc099124434700}{play} () const }\label{classFilm_a2da141229a61f420e3fc099124434700}
+
+\begin{DoxyCompactList}\small\item\em play \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classFilm}{Film} class heritee de la classe \hyperlink{classVideo}{Video}. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classFilm_a0dfdcf162d9a84e965c22435ca146310}{\index{Film@{Film}!get\-Nb\-Chap@{get\-Nb\-Chap}}
+\index{get\-Nb\-Chap@{get\-Nb\-Chap}!Film@{Film}}
+\subsubsection[{get\-Nb\-Chap}]{\setlength{\rightskip}{0pt plus 5cm}int Film\-::get\-Nb\-Chap (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classFilm_a0dfdcf162d9a84e965c22435ca146310}
+
+
+getter du nombre de chapitres 
+
+get nombre de chapitres \hypertarget{classFilm_a3ac1dee35b575835c68e92bf64826618}{\index{Film@{Film}!get\-Tab\-Dur@{get\-Tab\-Dur}}
+\index{get\-Tab\-Dur@{get\-Tab\-Dur}!Film@{Film}}
+\subsubsection[{get\-Tab\-Dur}]{\setlength{\rightskip}{0pt plus 5cm}const int $\ast$ Film\-::get\-Tab\-Dur (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classFilm_a3ac1dee35b575835c68e92bf64826618}
+
+
+getter du tableau de durees 
+
+getter \hypertarget{classFilm_a2691ad8cf20210033cc35a6aa28e8553}{\index{Film@{Film}!operator=@{operator=}}
+\index{operator=@{operator=}!Film@{Film}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Film} \& Film\-::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Film} \&}]{from}
+\end{DoxyParamCaption}
+)}}\label{classFilm_a2691ad8cf20210033cc35a6aa28e8553}
+
+
+redefinition de l'operateur = 
+
+redefinition de l'operateur =, copie profonde \hypertarget{classFilm_a27097a4f146d22c069f4ac429d40372d}{\index{Film@{Film}!set\-Tab\-Dur@{set\-Tab\-Dur}}
+\index{set\-Tab\-Dur@{set\-Tab\-Dur}!Film@{Film}}
+\subsubsection[{set\-Tab\-Dur}]{\setlength{\rightskip}{0pt plus 5cm}void Film\-::set\-Tab\-Dur (
+\begin{DoxyParamCaption}
+\item[{const int $\ast$}]{\-\_\-tab\-Dur, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classFilm_a27097a4f146d22c069f4ac429d40372d}
+
+
+setter 
+
+setter, copie d'un tableau de duree 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+film.\-h\item 
+film.\-cpp\end{DoxyCompactItemize}
